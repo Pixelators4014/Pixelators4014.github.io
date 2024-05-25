@@ -1,15 +1,15 @@
 {{ define "main" }}
 <section id="main">
-    <h1 id="title">{{ .Title }}</h1>
+    <header class="post-header"><h1 class="post-title entry-hint-parent">{{ .Title }}</h1><div class="post-meta"></div></header>
     <div>
         <div class="container">
-            <div class="image">
+            <div>
                 {{ $image := resources.Get "hero.png" }}
             </div>
-            <div class="text">
-                <article id="content">
+            <div>
+                <div class="post-content">
                     {{ .Content }}
-                </article>
+                </div>
             </div>
         </div>
     </div>
