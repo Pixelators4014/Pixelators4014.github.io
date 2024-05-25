@@ -5,6 +5,7 @@
         <div class="container">
             <div>
                 {{ $image := resources.Get "hero.png" }}
+                <img src="{{ $image.RelPermalink }}" alt="hero">
             </div>
             <div>
                 <div class="post-content">
