@@ -1,13 +1,22 @@
-<!-- layouts/_default/baseof.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/styles.css">
-    <title>{{ .Title }}</title>
+    <title>{{ block "title" . }}
+        <!-- Blocks may include default content. -->
+        {{ .Site.Title }}
+        {{ end }}</title>
 </head>
 <body>
-{{ block "main" . }}{{ end }}
+<!-- Code that all your templates share, like a header -->
+{{ block "main" . }}
+<!-- The part of the page that begins to differ between templates -->
+{{ end }}
+{{ block "footer" . }}
+<!-- More shared code, perhaps a footer but that can be overridden if need be in  -->
+{{ end }}
 </body>
 </html>
+
