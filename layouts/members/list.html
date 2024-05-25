@@ -1,0 +1,12 @@
+{{ define "main" }}
+<div class="members-list">
+    {{ range .Pages }}
+    <div class="card">
+        <img src="{{ .Params.photo }}" alt="{{ .Title }}">
+        <h2>{{ .Title }}</h2>
+        <p><strong>{{ .Params.role }}</strong></p>
+        <p>{{ .Summary }}</p>
+    </div>
+    {{ end }}
+</div>
+{{ end }}
