@@ -2,6 +2,8 @@
 title = 'Sponsors'
 +++
 
+## Supporting Us
+
 Thank you for your interest in sponsoring our team. To donate, please send a check by mail to:
 
 3111 Quiet Hills Place, Escondido CA 92029
