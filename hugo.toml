@@ -3,3 +3,6 @@ languageCode = 'en-us'
 title = 'Pixelators'
 theme = 'PaperMod'
 sectionPagesMenu = 'main'
+
+[outputs]
+home = ["HTML", "RSS", "JSON"]
