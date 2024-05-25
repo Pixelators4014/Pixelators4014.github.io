@@ -1,5 +1,6 @@
 +++
 title = 'Sponsors'
+menus = 'main'
 +++
 
 ## Supporting Us
