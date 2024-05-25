@@ -2,5 +2,3 @@
 title = 'Sponsors'
 +++
 
-# Sponsors
-
