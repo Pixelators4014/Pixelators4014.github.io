@@ -3,9 +3,9 @@
     <header class="post-header"><h1 class="post-title entry-hint-parent">{{ .Title }}</h1><div class="post-meta"></div></header>
     <div>
         <div class="container">
-            <div>
+            <div style="margin-right: 20px">
                 {{ $image := .Resources.Get "hero.png" }}
-                <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}">
+                <img src="{{ $image.RelPermalink }}" alt="hero" height="50%" width="50%" style="float: left"/>
             </div>
             <div>
                 <div class="post-content">
