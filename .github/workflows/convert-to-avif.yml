@@ -1,0 +1,36 @@
+name: Convert Images to AVIF
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install ImageMagick
+        run: sudo apt-get update && sudo apt-get install -y imagemagick
+
+      - name: Install GitHub CLI
+        run: sudo apt-get install -y gh
+
+      - name: Convert images to AVIF
+        run: |
+          find . -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" -o -name "*.webp" \) ! -path "./static/*" -exec sh -c '
+            for img; do
+              avif="${img%.*}.avif"
+              convert "$img" "$avif"
+            done
+          ' sh {} +
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6

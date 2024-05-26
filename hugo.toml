@@ -1,4 +1,4 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://www.pixelators.org/'
 languageCode = 'en-us'
 title = 'Pixelators'
 theme = 'PaperMod'
@@ -15,9 +15,8 @@ theme_color = "#ffffff"
 msapplication_TileColor = "#ffffff"
 
 [params.label]
-icon = "images/topnav_logo.png"
+icon = "images/topnav_logo.avif"
 
 [module]
-
 [[module.imports]]
 path = "hugo-notice"
