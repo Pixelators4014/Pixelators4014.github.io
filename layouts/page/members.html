@@ -33,16 +33,7 @@
     {{- if (.Param "ShowToc") }}
     {{- partial "toc.html" . }}
     {{- end }}
-
-    {{- if .Content }}
-    <div class="post-content">
-        {{- if not (.Param "disableAnchoredHeadings") }}
-        {{- partial "anchored_headings.html" .Content -}}
-        {{- else }}{{ .Content }}{{ end }}
-    </div>
-    {{- end }}
-
-    <div class="columns-3">
+    <div class="grid grid-rows-3 grid-flow-col gap-4">
         <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <div class="flex flex-col items-center pb-10">
                 {{ $alistair_image := resources.Get "images/member_photos/alistair.png" }}
