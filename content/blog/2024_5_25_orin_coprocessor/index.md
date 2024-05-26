@@ -127,6 +127,8 @@ But we did train a [YOLO](https://pjreddie.com/darknet/yolo/) model
 to detect the notes
 that can be found on [GitHub](https://github.com/Pixelators4014/jetson-localization/blob/main/yolov8s.pt).
 
+We were planning to use the [ISAAC ROS Object Detection package](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_object_detection) to run the YOLO model.
+
 ## Custom Node
 
 Due to the high performance requirements,
