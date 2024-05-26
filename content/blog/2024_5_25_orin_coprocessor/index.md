@@ -106,12 +106,15 @@ as we had a RealSense camera with an internal [IMU](https://en.wikipedia.org/wik
 
 ### April Tags
 
-Unfortunately, VSLAM is not perfect; at times, it can lose tracking of its surroundings,
-which forces the robot to rely exclusively on dead-reckoning.
-To help prevent this from happening, we used the April Tags on the field.
-We fused the April Tags data with the VSLAM data using a Kalman Filter to get a more accurate position of the robot.
+Unfortunately, VSLAM is not perfect; at times, it can lose tracking of its surroundings.
+This leads to a massive drift in the robot's position, which cannot be correct.
+We compensate a little with the IMU and dead-reckoning from motor encoder positions, but it is not enough.
+
+To help prevent this from happening, we used the April Tags on the field to correct the VSLAM position.
 We used the [April Tags ROS package from NVIDIA](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_apriltag) for this task.
 Due to performance requirements, we couldn't run april tags at full speed, because it would slow down the VSLAM.
+Once we received the April Tag data, we would correct the VSLAM position with the estimated robot position
+from the april tags via the `SetOdometryPose` service.
 
 ### Object Detection
 
