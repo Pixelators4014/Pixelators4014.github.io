@@ -1,0 +1,39 @@
+name: Convert Images to AVIF
+
+on:
+  push:
+    branches:
+      - "*"
+
+permissions:
+  contents: write
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install ImageMagick
+        run: sudo apt-get update && sudo apt-get install -y imagemagick
+
+      - name: Convert images to AVIF
+        run: |
+          find . -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" \) ! -path "./static/*" -exec sh -c '
+            for img; do
+              avif="${img%.*}.avif"
+              convert "$img" "$avif"
+            done
+          ' sh {} +
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          git add .
+          git commit -m "Convert images to AVIF format"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
