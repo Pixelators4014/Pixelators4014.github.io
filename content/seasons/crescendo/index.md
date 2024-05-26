@@ -10,7 +10,7 @@ title = 'Crescendo'
 
 ## Software
 
-We used a Jetson Orin Nano as a Coprocessor with an Intel RealSense Camera, which allowed us to run multiple vision tasks simultaneously.
+We used a [NVIDIA Orin Nano](https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-orin/) as a Coprocessor with an Intel RealSense Camera, which allowed us to run multiple vision tasks simultaneously.
 This allowed us to run three vision tasks at once
 
 - VSLAM (Visual Simultaneous Localization and Mapping)
