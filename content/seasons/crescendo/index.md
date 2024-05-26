@@ -8,6 +8,13 @@ title = 'Crescendo'
 
 ## Design
 
+Our objective this year was to target the AMP aspect of the game, so our bot was relatively simple from the Design aspect. <br>
+Our main scoring mechanism was an arm that intakes notes inside the frame (under a thinned perimeter bar), with a beam break sensor to stop the intaking when the note is at the correct place. <br>
+<br>
+For the arm pivot, we used two Falcon 500s (lowered to 10:64), with another Falcon powering the compliant wheels at the end of the grabber. <br>
+An interesting thing that we did this year was utilizing 3D printed component mounts, as we did not have a bellypan. <br>
+For the drivetrain this year, we used L3 MK4i Swerve Modules, with 8 Krakens powering them. <br>
+
 ## Software
 
 We used a [NVIDIA Orin Nano](https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-orin/) as a Coprocessor with an Intel RealSense Camera, which allowed us to run multiple vision tasks simultaneously.
