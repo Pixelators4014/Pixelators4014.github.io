@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install ImageMagick
         run: sudo apt-get update && sudo apt-get install -y imagemagick
@@ -32,19 +32,14 @@ jobs:
             done
           ' sh {} +
 
+          # git add .
       - name: Create branch and push changes
         run: |
-          git config --global user.name 'github-actions'
-          git config --global user.email 'github-actions@github.com'
-          git checkout -b convert-images-to-avif
-          git add .
+          git config user.name 'github-actions'
+          git config user.email 'github-actions@github.com'
           git commit -m "Convert images to AVIF format"
-          git pull --rebase origin main
-          git push --set-upstream origin convert-images-to-avif
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Create Pull Request using GH CLI
-        run: |
-          gh auth login --with-token <<< "${{ secrets.GITHUB_TOKEN }}"
-          gh pr create --title "Convert images to AVIF format" --body "This PR converts all JPG, JPEG, PNG, and WEBP images to AVIF format." --head convert-images-to-avif --base main
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
