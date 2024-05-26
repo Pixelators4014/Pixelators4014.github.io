@@ -4,6 +4,7 @@ date = '2024-05-25'
 author = 'Ashwin Naren'
 tags = ['software', 'coprocessor', 'rust', 'ros2']
 draft = true
+summary = 'Our software team used an NVIDIA Orin Nano Developer Kit as a coprocessor with ROS 2 with an Intel RealSense Camera, and got it working.'
 +++
 
 This season, our software team used
