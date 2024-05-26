@@ -3,9 +3,6 @@ languageCode = 'en-us'
 title = 'Pixelators'
 theme = 'PaperMod'
 
-
-
-
 [menus]
 [[menus.main]]
 name = 'Home'
