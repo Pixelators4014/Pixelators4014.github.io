@@ -39,11 +39,12 @@ jobs:
           git checkout -b convert-images-to-avif
           git add .
           git commit -m "Convert images to AVIF format"
+          git pull --rebase origin main
           git push --set-upstream origin convert-images-to-avif
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-          # gh auth login --with-token <<< "${{ secrets.GITHUB_TOKEN }}"
       - name: Create Pull Request using GH CLI
         run: |
+          gh auth login --with-token <<< "${{ secrets.GITHUB_TOKEN }}"
           gh pr create --title "Convert images to AVIF format" --body "This PR converts all JPG, JPEG, PNG, and WEBP images to AVIF format." --head convert-images-to-avif --base main
