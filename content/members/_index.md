@@ -1,4 +1,3 @@
 +++
 title = 'Members'
-layout = 'members'
 +++
