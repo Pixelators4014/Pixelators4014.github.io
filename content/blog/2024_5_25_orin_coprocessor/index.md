@@ -50,7 +50,7 @@ After setting up the environment, we had to create a workspace and install the n
 and [April Tags](https://nvidia-isaac-ros.github.io/repositories_and_packages/isaac_ros_apriltag/index.html#overview)).
 
 To play around with the nodes NVIDIA provided a shell script that would launch the
-nodes: https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_common/blob/main/scripts/run_dev.sh.
+nodes: [scripts/run_dev.sh](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_common/blob/main/scripts/run_dev.sh).
 
 We run the script like this:
 
