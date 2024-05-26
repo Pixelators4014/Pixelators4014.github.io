@@ -3,11 +3,11 @@ name: Convert Images to AVIF
 on:
   push:
     branches:
-      - main
-      - test
+      - "*"
 
 permissions:
   contents: write
+
 jobs:
   convert:
     runs-on: ubuntu-latest
@@ -16,17 +16,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up Python environment
-        uses: actions/setup-python@v3
-        with:
-          python-version: "3.x"
-
       - name: Install ImageMagick
         run: sudo apt-get update && sudo apt-get install -y imagemagick
 
       - name: Convert images to AVIF
         run: |
-          find . -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" \) -exec sh -c '
+          find . -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" \) ! -path "./static/*" -exec sh -c '
             for img; do
               avif="${img%.*}.avif"
               convert "$img" "$avif"
