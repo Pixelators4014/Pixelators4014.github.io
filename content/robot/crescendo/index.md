@@ -2,4 +2,4 @@
 title = '2024 Bot'
 +++
 
-![Bot Picture](./bot_2024.png)
+![Bot Picture](./frc_2024_bot_render.png)
