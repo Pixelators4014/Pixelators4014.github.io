@@ -7,6 +7,9 @@ sectionPagesMenu = 'main'
 [outputs]
 home = ["HTML", "RSS", "JSON"]
 
+[params]
+defaultTheme = "auto"
+
 [params.assets]
 theme_color = "#ffffff"
 msapplication_TileColor = "#ffffff"
