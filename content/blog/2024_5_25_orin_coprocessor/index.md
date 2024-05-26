@@ -78,6 +78,11 @@ admin@ubuntu:/workspaces/isaac_ros-dev$ ros2 node list
 /visual_slam_node
 ```
 
+You can try out `ros2 topic list` and `ros2 service list` too,
+and view the topic output with `ros2 topic echo <topic name>`,
+or view the frequency of the topic with `ros2 topic hz <topic name>`.
+
+
 ## Vision Tasks
 
 We ran three vision tasks on the Orin Nano:
