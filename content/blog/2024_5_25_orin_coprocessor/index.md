@@ -1,5 +1,5 @@
 +++
-title = 'Adventures with a Orin Nano'
+title = 'Adventures with an Orin Nano'
 date = '2024-05-25'
 author = 'Ashwin Naren'
 tags = ['software', 'coprocessor', 'rust', 'ros2']
