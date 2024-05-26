@@ -3,7 +3,7 @@ name: Convert Images to AVIF
 on:
   push:
     branches:
-      - "*"
+      - main
 
 permissions:
   contents: write
