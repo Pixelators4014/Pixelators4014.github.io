@@ -1,5 +1,5 @@
 +++
-title = '2024 Bot'
+title = 'Crescendo'
 +++
 
 ![Bot Picture](./frc_2024_bot_render.png)
