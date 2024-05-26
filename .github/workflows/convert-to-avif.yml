@@ -20,6 +20,9 @@ jobs:
       - name: Install ImageMagick
         run: sudo apt-get update && sudo apt-get install -y imagemagick
 
+      - name: Install GitHub CLI
+        run: sudo apt-get install -y gh
+
       - name: Convert images to AVIF
         run: |
           find . -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" -o -name "*.webp" \) ! -path "./static/*" -exec sh -c '
@@ -29,7 +32,7 @@ jobs:
             done
           ' sh {} +
 
-      - name: Create branch
+      - name: Create branch and push changes
         run: |
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
@@ -40,11 +43,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v5
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: Convert images to AVIF format
-          branch: convert-images-to-avif
-          title: Convert images to AVIF format
-          body: This PR converts all JPG, JPEG, PNG, and WEBP images to AVIF format.
+          # gh auth login --with-token <<< "${{ secrets.GITHUB_TOKEN }}"
+      - name: Create Pull Request using GH CLI
+        run: |
+          gh pr create --title "Convert images to AVIF format" --body "This PR converts all JPG, JPEG, PNG, and WEBP images to AVIF format." --head convert-images-to-avif --base main
