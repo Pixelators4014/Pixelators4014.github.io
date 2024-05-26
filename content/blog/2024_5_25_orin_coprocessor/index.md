@@ -17,7 +17,7 @@ such as VSLAM, object detection, and April Tags, in parallel with our main robot
 We were looking for a coprocessor that had a good GPU, for faster vision task performance.
 Naturally, we looked at NVIDIA's processors due to NVIDIA's high-performance GPUs.
 We are constricted by the $700 limit on robot parts, so we couldn't use a Jetson AGX Developer Kit ($2000-$3000).
-We needed a developer kit to test our code,
+We needed a developer kit to test our code
 because we did not want to run the risk of deploying code on a processor that is not our testing processor
 due to time and budget constraints.
 So we did not consider non-developer kit options like the Jetson Orin NX series.
@@ -49,7 +49,7 @@ After setting up the environment, we had to create a workspace and install the n
 [Object Detection](https://nvidia-isaac-ros.github.io/repositories_and_packages/isaac_ros_object_detection/index.html#quickstarts),
 and [April Tags](https://nvidia-isaac-ros.github.io/repositories_and_packages/isaac_ros_apriltag/index.html#overview)).
 
-To play around with the nodes NVIDIA provided a shell script that would launch the
+To play around with the nodes, NVIDIA provided a shell script that would launch the
 nodes: [scripts/run_dev.sh](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_common/blob/main/scripts/run_dev.sh).
 
 We run the script like this:
@@ -82,7 +82,6 @@ You can try out `ros2 topic list` and `ros2 service list` too,
 and view the topic output with `ros2 topic echo <topic name>`,
 or view the frequency of the topic with `ros2 topic hz <topic name>`.
 
-
 ## Vision Tasks
 
 We ran three vision tasks on the Orin Nano:
@@ -112,14 +111,13 @@ as we had a RealSense camera with an internal [IMU](https://en.wikipedia.org/wik
 
 ![gif of April Tags running](https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/main/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_apriltag/isaac_ros_apriltag_sample_crop.gif/)
 
-
 Unfortunately, VSLAM is not perfect; at times, it can lose tracking of its surroundings.
 This leads to a massive drift in the robot's position, which cannot be correct.
 We compensate a little with the IMU and dead-reckoning from motor encoder positions, but it is not enough.
 
 To help prevent this from happening, we used the April Tags on the field to correct the VSLAM position.
 We used the [April Tags ROS package from NVIDIA](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_apriltag) for this task.
-Due to performance requirements, we couldn't run april tags at full speed, because it would slow down the VSLAM.
+Due to performance requirements, we couldn't run april tags at full speed because it would slow down the VSLAM.
 Once we received the April Tag data, we would correct the VSLAM position with the estimated robot position
 from the april tags via the `SetOdometryPose` service.
 
@@ -130,7 +128,9 @@ But we did train a [YOLO](https://pjreddie.com/darknet/yolo/) model
 to detect the notes
 that can be found on [GitHub](https://github.com/Pixelators4014/jetson-localization/blob/main/yolov8s.pt).
 
-We were planning to use the [ISAAC ROS Object Detection package](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_object_detection) to run the YOLO model.
+We were planning to use
+the [ISAAC ROS Object Detection package](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_object_detection) to run the YOLO
+model.
 
 ## Custom Node
 
@@ -218,6 +218,10 @@ While we were at it, we also used the [log crate](https://crates.io/crates/log) 
 and developed a custom logger that logs in a ros2 supported manner.
 This was useful for debugging and logging errors.
 
+You can find it as in
+the [ros2_logger subdirectory](https://github.com/Pixelators4014/pixelization_rs/tree/master/ros2_logger),
+but we plan to move it to its own repository, so it can be used in a `Cargo.toml`.
+
 ## Packaging
 
 We used Docker to package our code, you can find our docker file
@@ -251,11 +255,15 @@ as ROS 2 affects performance due to its concurrency model.
 Short answer: Probably not.
 
 The Orin Nano is great *if* you have the time and resources to set it up.
-... but, you have to learn ROS 2, which has a steep learning curve.
+... but you have to learn ROS 2, which has a steep learning curve.
+
 It also requires immense amounts of Linux knowledge to set up and configue—we probably spent hours configuring our
 Dockerfiles.
+The NVIDIA documentation is also not the best and is not well organized,
+so you have to rely on the community for help sometimes.
+
 We started around Mid-February and only got it working less than a day before competition (AVR).
-And this was with two people working on it close to full-time.
+And this was with two people working on it close to full-time who had plenty of experience doing this before.
 It, however, probably would be a great off-season project that could be used in the next season.
 
-Happy Hacking!
+Happy Hacking and Good Luck!
