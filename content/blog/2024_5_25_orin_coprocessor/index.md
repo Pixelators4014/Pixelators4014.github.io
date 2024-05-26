@@ -17,7 +17,7 @@ such as VSLAM, object detection, and April Tags, in parallel with our main robot
 We were looking for a coprocessor that had a good GPU, for faster vision task performance.
 Naturally, we looked at NVIDIA's processors due to NVIDIA's high-performance GPUs.
 We are constricted by the $700 limit on robot parts, so we couldn't use a Jetson AGX Developer Kit ($2000-$3000).
-We needed a developer kit to test our code, 
+We needed a developer kit to test our code,
 because we did not want to run the risk of deploying code on a processor that is not our testing processor
 due to time and budget constraints.
 So we did not consider non-developer kit options like the Jetson Orin NX series.
@@ -25,7 +25,7 @@ The Orin Nano Developer Kit was within the $700 limit, so it was chosen.
 It has a 1024-core NVIDIA Ampere architecture GPU with 32 Tensor Cores,
 which produces up to 40 TOPS (Tera Operations Per Second) of performance.
 It also has a 6-core ARM Cortex-A78AE CPU, which is more than enough for our CPU work.
-The Orin also has a decent 7-15 W power consumption, which ensures it does not drain our battery power. 
+The Orin also has a decent 7–15 W power consumption, which ensures it does not drain our battery power too quickly.
 
 ## ROS 2
 
@@ -35,32 +35,47 @@ It consists of nodes, which are separate processes that communicate with each ot
 There are three types of ways to communicate between nodes: topics, services, and actions.
 Topics are a publish-subscribe system, where one node publishes data to multiple receivers.
 Services are a request-response system, where one node requests data from another node.
-Actions are a more complex version of services, where the request-response system is asynchronous and there are status updates along the way.
+Actions are a more complex version of services, where the request-response system is asynchronous and there are status
+updates along the way.
 For our project, we only used topics.
 NVIDIA maintains a version of ROS 2 called [ISSAC ROS](https://developer.nvidia.com/isaac/ros),
 which has some additional support for their GPUs.
 
-For example, this is what the ros2 node list looks like when we run the vision tasks
+To set it up, NVIDIA has published
+a [guide to setup a developer environment](https://nvidia-isaac-ros.github.io/getting_started/dev_env_setup.html).
+
+After setting up the environment, we had to create a workspace and install the necessary packages
+([VSLAM](https://nvidia-isaac-ros.github.io/repositories_and_packages/isaac_ros_visual_slam/isaac_ros_visual_slam/index.html#quickstart),
+[Object Detection](https://nvidia-isaac-ros.github.io/repositories_and_packages/isaac_ros_object_detection/index.html#quickstarts),
+and [April Tags](https://nvidia-isaac-ros.github.io/repositories_and_packages/isaac_ros_apriltag/index.html#overview)).
+
+To play around with the nodes NVIDIA provided a shell script that would launch the
+nodes: https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_common/blob/main/scripts/run_dev.sh.
+
+We run the script like this:
+
+```bash
+cd ${ISAAC_ROS_WS}/src/isaac_ros_common && \
+  ./scripts/run_dev.sh ${ISAAC_ROS_WS}
+```
+
+This script builds and runs the dockerfile, and then attaches to the container.
+
+Then we could install the required packages and run the nodes:
+
+```bash
+sudo apt-get install -y ros-humble-isaac-ros-visual-slam
+ros2 launch isaac_ros_visual_slam isaac_ros_visual_slam_realsense.launch.py
+```
+
+After running this command, we could list the nodes:
 
 ```
 admin@ubuntu:/workspaces/isaac_ros-dev$ ros2 node list
-WARNING: Be aware that are nodes in the graph that share an exact name, this can have unintended side effects.
-/apriltag
-/apriltag_container
-/camera/camera
-/comms_node
-/comms_node
-/comms_node
-/dnn_image_encoder
-/launch_ros_54050
 /rectify
 /resize_node
-/tensor_rt
-/tensor_rt_container
-/transform_listener_impl_aaaafafa41c0
 /visual_slam_launch_container
 /visual_slam_node
-/yolov8_decoder_node
 ```
 
 ## Vision Tasks
@@ -143,13 +158,14 @@ we had to use `Arc`s to share data across threads and `RwLock`s to allow for int
 
 The Orin Nano was connected to the RoboRIO via Ethernet.
 ~~Due to latency concerns~~ Because network tables didn't compile on the Orin Nano for rust,
-we communicated between the two via a custom UDP protocol to reduce latency.
+we communicated between the two via a custom [UDP](https://en.wikipedia.org/wiki/User_Datagram_Protocol) protocol to
+reduce latency.
 Rust is great for networking, so creating a reliable crash-proof UDP server was easy.
 The harder part was calling it from the RIO, which was written in C++.
-Our custom UDP protocol was simple and status, we just serialized the Pose into bytes (first byte was status, 1-5 was x, 5-9 was y, etc.).
+Our custom UDP protocol was simple and status; we just serialized the Pose into bytes (first byte was status, 1-5 was x,
+5-9 was y, etc.).
 We also left some room for error handling in the protocol,
 with the first byte being the response type (0 is empty, 1 is error string, 2 is Pose etc.).
-
 
 ```cpp
     send_buffer[0] = std::byte{0};
@@ -183,7 +199,6 @@ with the first byte being the response type (0 is empty, 1 is error string, 2 is
     }
 ```
 
-
 ### Logging crate
 
 While we were at it, we also used the [log crate](https://crates.io/crates/log) to log messages
@@ -192,13 +207,15 @@ This was useful for debugging and logging errors.
 
 ## Packaging
 
-We used Docker to package our code, you can find our docker file here: https://github.com/Pixelators4014/pixelization_rs/blob/master/Dockerfile.
-To run all the nodes simultaneously, we used a launch file, which we published here: https://github.com/Pixelators4014/pixelization_rs/blob/master/launch/run.launch.py.
+We used Docker to package our code, you can find our docker file
+here: https://github.com/Pixelators4014/pixelization_rs/blob/master/Dockerfile.
+To run all the nodes simultaneously, we used a launch file, which we published
+here: https://github.com/Pixelators4014/pixelization_rs/blob/master/launch/run.launch.py.
 The launch file is a python file that configures and launches all the nodes.
 
 ## Integration with the Main Robot Code
 
-The C++ STL sucks at doing basically everything, so naturally creating a UDP socket was a pain.
+The C++ STL sucks at doing basically everything, so naturally creating an UDP socket was a pain.
 To fix this, we used [kissnet](https://github.com/Ybalrid/kissnet),
 a header-only C++ networking library that greatly simplified socket creation.
 
@@ -214,9 +231,7 @@ We could have fused the April Tags and VSLAM data with a Kalman Filter to get a 
 We disabled this because of time constraints, but it was implemented.
 
 Also, we could have moved away from ROS 2 to normal C++ packages,
-as ROS 2 affects performance due to it's concurrency model.
-
-
+as ROS 2 affects performance due to its concurrency model.
 
 ### Should you use an Orin Nano?
 
@@ -224,7 +239,8 @@ Short answer: Probably not.
 
 The Orin Nano is great *if* you have the time and resources to set it up.
 ... but, you have to learn ROS 2, which has a steep learning curve.
-It also requires immense amounts of Linux knowledge to set up and configue—we probably spent hours configuring our Dockerfiles.
+It also requires immense amounts of Linux knowledge to set up and configue—we probably spent hours configuring our
+Dockerfiles.
 We started around Mid-February and only got it working less than a day before competition (AVR).
 And this was with two people working on it close to full-time.
 It, however, probably would be a great off-season project that could be used in the next season.
