@@ -110,6 +110,9 @@ as we had a RealSense camera with an internal [IMU](https://en.wikipedia.org/wik
 
 ### April Tags
 
+![gif of April Tags running](https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/main/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_apriltag/isaac_ros_apriltag_sample_crop.gif/)
+
+
 Unfortunately, VSLAM is not perfect; at times, it can lose tracking of its surroundings.
 This leads to a massive drift in the robot's position, which cannot be correct.
 We compensate a little with the IMU and dead-reckoning from motor encoder positions, but it is not enough.
