@@ -6,7 +6,7 @@ on:
       - "*"
 
 permissions:
-  contents: write
+  pull-requests: write
 
 jobs:
   convert:
@@ -21,19 +21,29 @@ jobs:
 
       - name: Convert images to AVIF
         run: |
-          find . -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" \) ! -path "./static/*" -exec sh -c '
+          find . -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" -o -name "*.webp" \) ! -path "./static/*" -exec sh -c '
             for img; do
               avif="${img%.*}.avif"
               convert "$img" "$avif"
             done
           ' sh {} +
 
-      - name: Commit and push changes
+      - name: Create branch
         run: |
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
+          git checkout -b convert-images-to-avif
           git add .
           git commit -m "Convert images to AVIF format"
-          git push
+          git push --set-upstream origin convert-images-to-avif
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: Convert images to AVIF format
+          branch: convert-images-to-avif
+          title: Convert images to AVIF format
+          body: This PR converts all JPG, JPEG, PNG, and WEBP images to AVIF format.
