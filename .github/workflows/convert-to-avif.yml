@@ -24,22 +24,23 @@ jobs:
         run: sudo apt-get install -y gh
 
       - name: Convert images to AVIF
+        id: convert_images
         run: |
+          converted=false
           find . -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" -o -name "*.webp" \) ! -path "./static/*" -exec sh -c '
             for img; do
               avif="${img%.*}.avif"
-              convert "$img" "$avif"
+              if [ ! -f "$avif" ]; then
+                convert "$img" "$avif"
+                converted=true
+              fi
             done
           ' sh {} +
-
-      - name: Create branch and push changes
-        run: |
-          git config user.name 'github-actions'
-          git config user.email 'github-actions@github.com'
-          git add .
-          git commit -m "Convert images to AVIF format"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          echo "::set-output name=converted::$converted"
 
       - name: Create Pull Request
+        if: steps.convert_images.outputs.converted == 'true'
         uses: peter-evans/create-pull-request@v6
+        with:
+          title: "Convert images to AVIF"
+          body: "This PR converts all images to AVIF format."
