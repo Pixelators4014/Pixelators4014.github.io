@@ -6,3 +6,7 @@ sectionPagesMenu = 'main'
 
 [outputs]
 home = ["HTML", "RSS", "JSON"]
+
+[params.assets]
+theme_color = "#ffffff"
+msapplication_TileColor = "#ffffff"
