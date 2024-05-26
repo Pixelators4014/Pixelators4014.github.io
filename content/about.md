@@ -1,6 +1,5 @@
 +++
 title = 'About Us'
-menus = 'main'
 +++
 
 ## Mission Statement
