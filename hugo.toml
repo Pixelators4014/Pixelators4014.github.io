@@ -16,3 +16,8 @@ msapplication_TileColor = "#ffffff"
 
 [params.label]
 icon = "images/topnav_logo.png"
+
+[module]
+
+[[module.imports]]
+path = "hugo-notice"
