@@ -6,6 +6,8 @@ on:
       - main
       - test
 
+permissions:
+  contents: write
 jobs:
   convert:
     runs-on: ubuntu-latest
