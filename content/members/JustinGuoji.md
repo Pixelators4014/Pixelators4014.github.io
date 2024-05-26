@@ -4,7 +4,7 @@ photo = 'images/member_photos/justin.png'
 position = 'Fabrication Lead'
 +++
 
-![c'est moi](./images/member_photos/justin.png)
+<img src="https://github.com/Pixelators4014/Pixelators4014.github.io/assets/170292421/464b9d11-06f0-4727-a7ff-710b5ba86ca7" width="300"/>
 
 Justin is a full-time sophomore at SOHS, where he currently peer tutors three courses. His favorite subjects are chemistry and physics. An avid student of STEM, he joined 4014 in 2022 as a designer and fabricator, later integrating into the outreach department and drive team. He now works as the Fabrication Lead, Outreach Head, main operator, and rising Co-Captain for the 24-25' FRC season.  <br><br>
 
