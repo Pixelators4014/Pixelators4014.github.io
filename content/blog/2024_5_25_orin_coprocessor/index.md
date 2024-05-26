@@ -1,5 +1,5 @@
 +++
-title = 'Using an NVIDIA Orin Nano as a Coprocessor'
+title = 'Adventures with a Orin Nano'
 date = '2024-05-25'
 author = 'Ashwin Naren'
 tags = ['software', 'coprocessor', 'rust', 'ros2']
