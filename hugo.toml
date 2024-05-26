@@ -1,4 +1,4 @@
-baseURL = 'https://www.pixelators.org/'
+baseURL = '/'
 languageCode = 'en-us'
 title = 'Pixelators'
 theme = 'PaperMod'
