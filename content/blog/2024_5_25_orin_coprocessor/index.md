@@ -29,7 +29,7 @@ The Orin also has a decent 7-15 W power consumption, which ensures it does not d
 
 ## ROS 2
 
-We used ROS 2 (Robot Operating System 2) to run the software on the Orin Nano.
+We used [ROS 2 (Robot Operating System 2)](https://www.ros.org/) to run the software on the Orin Nano.
 ROS 2 is an architecture of sorts for writing robot software.
 It consists of nodes, which are separate processes that communicate with each other via ROS 2's middleware.
 There are three types of ways to communicate between nodes: topics, services, and actions.
@@ -39,6 +39,29 @@ Actions are a more complex version of services, where the request-response syste
 For our project, we only used topics.
 NVIDIA maintains a version of ROS 2 called [ISSAC ROS](https://developer.nvidia.com/isaac/ros),
 which has some additional support for their GPUs.
+
+For example, this is what the ros2 node list looks like when we run the vision tasks
+
+```
+admin@ubuntu:/workspaces/isaac_ros-dev$ ros2 node list
+WARNING: Be aware that are nodes in the graph that share an exact name, this can have unintended side effects.
+/apriltag
+/apriltag_container
+/camera/camera
+/comms_node
+/comms_node
+/comms_node
+/dnn_image_encoder
+/launch_ros_54050
+/rectify
+/resize_node
+/tensor_rt
+/tensor_rt_container
+/transform_listener_impl_aaaafafa41c0
+/visual_slam_launch_container
+/visual_slam_node
+/yolov8_decoder_node
+```
 
 ## Vision Tasks
 
@@ -160,6 +183,19 @@ with the first byte being the response type (0 is empty, 1 is error string, 2 is
     }
 ```
 
+
+### Logging crate
+
+While we were at it, we also used the [log crate](https://crates.io/crates/log) to log messages
+and developed a custom logger that logs in a ros2 supported manner.
+This was useful for debugging and logging errors.
+
+## Packaging
+
+We used Docker to package our code, you can find our docker file here: https://github.com/Pixelators4014/pixelization_rs/blob/master/Dockerfile.
+To run all the nodes simultaneously, we used a launch file, which we published here: https://github.com/Pixelators4014/pixelization_rs/blob/master/launch/run.launch.py.
+The launch file is a python file that configures and launches all the nodes.
+
 ## Integration with the Main Robot Code
 
 The C++ STL sucks at doing basically everything, so naturally creating a UDP socket was a pain.
@@ -167,7 +203,8 @@ To fix this, we used [kissnet](https://github.com/Ybalrid/kissnet),
 a header-only C++ networking library that greatly simplified socket creation.
 
 Integrating the new data with odometry was rather trivial with the `update`
-method of the odometry object (https://docs.wpilib.org/en/stable/docs/software/kinematics-and-odometry/swerve-drive-odometry.html#updating-the-robot-pose).
+method of the odometry
+object (https://docs.wpilib.org/en/stable/docs/software/kinematics-and-odometry/swerve-drive-odometry.html#updating-the-robot-pose).
 
 ## Conclusion
 
