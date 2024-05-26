@@ -27,6 +27,14 @@ Be sure to mention Team 4014.
 
 ## Current Sponsors
 
-### Diamond Sponsors
+### Diamond Sponsors ($2500+)
 
-- Stanford Online High School
+![Stanford Online High school](./ohs.png)
+
+### Platinum Sponsors ($1000+)
+
+### Gold Sponsors ($500+)
+
+### Silver Sponsors ($250+)
+
+### Bronze Sponsors ($100+)
