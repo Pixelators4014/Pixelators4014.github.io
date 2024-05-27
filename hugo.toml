@@ -54,6 +54,7 @@ msapplication_TileColor = "#ffffff"
 
 [params.label]
 icon = "images/logo.avif"
+alt = "Pixelators Logo"
 iconHeight = 20
 
 [module]
