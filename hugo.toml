@@ -46,11 +46,11 @@ home = ["HTML", "RSS", "JSON"]
 
 [params]
 defaultTheme = "auto"
-theme_color = "#d6262c"
+theme_color = "#e12f35"
 
 [params.assets]
-theme_color = "#ffffff"
-msapplication_TileColor = "#ffffff"
+theme_color = "#e12f35"
+msapplication_TileColor = "#e12f35"
 
 [params.label]
 icon = "images/logo.avif"
