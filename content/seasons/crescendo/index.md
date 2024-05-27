@@ -4,7 +4,9 @@ title = 'Crescendo'
 
 ![Bot Picture](./frc_2024_bot_render.avif)
 
-## Robot Specs
+## Accomplishments
+
+- Selected by the second alliance captain in [Ventura Regional](https://cafirst.org/frc/ventura/) (Ranked 19 out of 48).
 
 ## Design
 
