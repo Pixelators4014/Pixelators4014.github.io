@@ -1,32 +1,30 @@
 {{ define "main" }}
-<main class="main">
-    <article class="post-single">
-        <header class="page-header">
-            <h1>{{ .Title }}</h1>
-        </header>
-        <div class="post-content">
-            <!-- Note that the content for index.html, as a sort of list page, will pull from content/_index.md -->
-            {{ .Content }}
-        </div>
-    </article>
-
-    <div class="gap-8 columns-3">
-        {{ $image1 := resources.Get "images/homepage_1.avif" }}
-        {{ $image2 := resources.Get "images/homepage_2.avif" }}
-        {{ $image3 := resources.Get "images/homepage_3.avif" }}
-        {{ $image4 := resources.Get "images/homepage_4.avif" }}
-        {{ $image5 := resources.Get "images/homepage_5.avif" }}
-        {{ $image6 := resources.Get "images/homepage_6.avif" }}
-        {{ $image7 := resources.Get "images/homepage_7.avif" }}
-        {{ $image8 := resources.Get "images/homepage_8.avif" }}
-        <img class="rounded-lg w-full object-scale-down aspect-4x3 my-8" src="{{ $image1.RelPermalink }}" />
-        <img class="rounded-lg w-full object-scale-down aspect-4x3 my-8" src="{{ $image2.RelPermalink }}" />
-        <img class="rounded-lg w-full object-scale-down aspect-4x3 my-8" src="{{ $image3.RelPermalink }}" />
-        <img class="rounded-lg w-full object-scale-down aspect-4x3 my-8" src="{{ $image4.RelPermalink }}" />
-        <img class="rounded-lg w-full object-scale-down aspect-4x3 my-8" src="{{ $image5.RelPermalink }}" />
-        <img class="rounded-lg w-full object-scale-down aspect-4x3 my-8" src="{{ $image6.RelPermalink }}" />
-        <img class="rounded-lg w-full object-scale-down aspect-4x3 my-8" src="{{ $image7.RelPermalink }}" />
-        <img class="rounded-lg w-full object-scale-down aspect-4x3 my-8" src="{{ $image8.RelPermalink }}" />
+<article class="post-single">
+    <header class="page-header">
+        <h1>{{ .Title }}</h1>
+    </header>
+    <div class="post-content">
+        <!-- Note that the content for index.html, as a sort of list page, will pull from content/_index.md -->
+        {{ .Content }}
     </div>
-</main>
+</article>
+
+<div class="gap-8 columns-3">
+    {{ $image1 := resources.Get "images/homepage_1.avif" }}
+    {{ $image2 := resources.Get "images/homepage_2.avif" }}
+    {{ $image3 := resources.Get "images/homepage_3.avif" }}
+    {{ $image4 := resources.Get "images/homepage_4.avif" }}
+    {{ $image5 := resources.Get "images/homepage_5.avif" }}
+    {{ $image6 := resources.Get "images/homepage_6.avif" }}
+    {{ $image7 := resources.Get "images/homepage_7.avif" }}
+    {{ $image8 := resources.Get "images/homepage_8.avif" }}
+    <img class="rounded-lg w-full object-scale-down aspect-4x3 my-8" src="{{ $image1.RelPermalink }}" />
+    <img class="rounded-lg w-full object-scale-down aspect-4x3 my-8" src="{{ $image2.RelPermalink }}" />
+    <img class="rounded-lg w-full object-scale-down aspect-4x3 my-8" src="{{ $image3.RelPermalink }}" />
+    <img class="rounded-lg w-full object-scale-down aspect-4x3 my-8" src="{{ $image4.RelPermalink }}" />
+    <img class="rounded-lg w-full object-scale-down aspect-4x3 my-8" src="{{ $image5.RelPermalink }}" />
+    <img class="rounded-lg w-full object-scale-down aspect-4x3 my-8" src="{{ $image6.RelPermalink }}" />
+    <img class="rounded-lg w-full object-scale-down aspect-4x3 my-8" src="{{ $image7.RelPermalink }}" />
+    <img class="rounded-lg w-full object-scale-down aspect-4x3 my-8" src="{{ $image8.RelPermalink }}" />
+</div>
 {{ end }}
