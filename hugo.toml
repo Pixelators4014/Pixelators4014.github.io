@@ -2,6 +2,7 @@ baseURL = '/'
 languageCode = 'en-us'
 title = 'Pixelators'
 theme = 'PaperMod'
+enableRobotsTXT = true
 
 [menus]
 [[menus.main]]
