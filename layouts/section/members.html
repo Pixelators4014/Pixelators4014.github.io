@@ -40,7 +40,7 @@
                 {{- $image_url := .Params.photo | default "images/logo.avif" }}
                 {{- $image := resources.Get $image_url }}
                 {{ with $image }}
-                <img class="object-cover w-24 h-24 mb-3 rounded-full shadow-lg" src="{{ .RelPermalink }}" alt="Photo"/>
+                <img class="object-cover w-24 h-24 my-3 rounded-full shadow-lg" src="{{ .RelPermalink }}" alt="Photo"/>
                 {{ end }}
                 <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">{{- .Title }}</h5>
                 <span class="text-sm text-gray-500 dark:text-gray-400">{{- .Params.position }}</span>
