@@ -45,6 +45,7 @@ home = ["HTML", "RSS", "JSON"]
 
 [params]
 defaultTheme = "auto"
+theme_color = "#d6262c"
 
 [params.assets]
 theme_color = "#ffffff"
