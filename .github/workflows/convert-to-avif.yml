@@ -26,7 +26,7 @@ jobs:
 
       - name: Convert images to AVIF
         run: |
-          find . -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" -o -name "*.webp" \) ! -path "./static/*" -exec sh -c '
+          find . -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" \) ! -path "./static/*" -exec sh -c '
             for img; do
               avif="${img%.*}.avif"
               convert "$img" "$avif"
@@ -35,7 +35,7 @@ jobs:
 
       - name: Convert images to WebP
         run: |
-          find . -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" -o -name "*.avif" \) ! -path "./static/*" -exec sh -c '
+          find . -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" \) ! -path "./static/*" -exec sh -c '
             for img; do
               webp="${img%.*}.webp"
               convert "$img" "$webp"
