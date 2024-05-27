@@ -1,6 +1,6 @@
 +++
 title = 'Ashwin Naren'
-photo = 'images/member_photos/ashwin.jpg'
+photo = 'images/member_photos/ashwin.png'
 position = 'Software Lead'
 +++
 
