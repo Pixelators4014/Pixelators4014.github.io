@@ -40,6 +40,7 @@
                 {{- $image_url := .Params.photo | default "images/logo.png" }}
                 {{- $image := resources.Get $image_url }}
                 {{ $image = $image.Resize "150x" }}
+                {{ $image := $image.Process "webp" }}
                 {{ with $image }}
                 <img class="object-cover w-24 h-24 my-3 rounded-full shadow-lg" src="{{ .RelPermalink }}"
                      alt="{{- .Title }}"/>
