@@ -1,6 +1,6 @@
 +++
 title = 'Alistair Keiller'
-photo = 'images/member_photos/alistair.avif'
+photo = 'images/member_photos/alistair.webp'
 position = 'Captain'
 +++
 Alistair is interested in web development, competitive programming, robotics, and math.
