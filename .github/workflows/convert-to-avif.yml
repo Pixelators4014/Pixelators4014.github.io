@@ -33,13 +33,5 @@ jobs:
             done
           ' sh {} +
 
-      - name: Convert images to WebP
-        run: |
-          find . -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" \) ! -path "./static/*" -exec sh -c '
-            for img; do
-              webp="${img%.*}.webp"
-              convert "$img" "$webp"
-            done
-          ' sh {} +
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
