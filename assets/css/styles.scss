@@ -1,3 +1,9 @@
 @import "node_modules/tailwindcss/base";
 @import "node_modules/tailwindcss/components";
 @import "node_modules/tailwindcss/utilities";
+
+// TODO: use hugo.toml to set the theme color
+main a {
+  color: #e12f35 !important;
+  text-decoration: #e12f35;
+}
