@@ -16,12 +16,12 @@ such as VSLAM, object detection, and April Tags, in parallel with our main robot
 
 We were looking for a coprocessor that had a good GPU, for faster vision task performance.
 Naturally, we looked at NVIDIA's processors due to NVIDIA's high-performance GPUs.
-We are constricted by the $700 limit on robot parts, so we couldn't use a Jetson AGX Developer Kit ($2000-$3000).
+We are constricted by the $600 limit on robot parts, so we couldn't use a Jetson AGX Developer Kit ($2000-$3000).
 We needed a developer kit to test our code
 because we did not want to run the risk of deploying code on a processor that is not our testing processor
 due to time and budget constraints.
 So we did not consider non-developer kit options like the Jetson Orin NX series.
-The Orin Nano Developer Kit was within the $700 limit, so it was chosen.
+The Orin Nano Developer Kit was within the $600 limit, so it was chosen.
 It has a 1024-core NVIDIA Ampere architecture GPU with 32 Tensor Cores,
 which produces up to 40 TOPS (Tera Operations Per Second) of performance.
 It also has a 6-core ARM Cortex-A78AE CPU, which is more than enough for our CPU work.
@@ -267,3 +267,5 @@ And this was with two people working on it close to full-time who had plenty of 
 It, however, probably would be a great off-season project that could be used in the next season.
 
 Happy Hacking and Good Luck!
+
+EDIT: Fixed FMV limit typo
