@@ -38,6 +38,8 @@
 </div>
 {{- end }}
 
+
+<div class="space-y-6 flex flex-col">
 {{- $pages := union .RegularPages .Sections }}
 
 {{- if .IsHome }}
@@ -54,20 +56,11 @@
 {{- $term := .Data.Term }}
 {{- range $index, $page := $paginator.Pages }}
 
-{{- $class := "post-entry" }}
-
-{{- $user_preferred := or site.Params.disableSpecial1stPost site.Params.homeInfoParams }}
-{{- if (and $.IsHome (eq $paginator.PageNumber 1) (eq $index 0) (not $user_preferred)) }}
-{{- $class = "first-entry" }}
-{{- else if $term }}
-{{- $class = "post-entry tag-entry" }}
-{{- end }}
-
-<article class="{{ $class }}">
+<a class="block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}">
   {{- $isHidden := (.Param "cover.hiddenInList") | default (.Param "cover.hidden") | default false }}
   {{- partial "cover.html" (dict "cxt" . "IsSingle" false "isHidden" $isHidden) }}
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">
+  <header class="">
+    <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
       {{- .Title }}
       {{- if .Draft }}
       <span class="entry-hint" title="Draft">
@@ -80,19 +73,16 @@
     </h2>
   </header>
   {{- if (ne (.Param "hideSummary") true) }}
-  <div class="entry-content">
-    <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
-  </div>
+  <p class="font-normal text-gray-700 dark:text-gray-400">{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
   {{- end }}
   {{- if not (.Param "hideMeta") }}
-  <footer class="entry-footer">
+  <footer class="text-sm font-normal text-gray-500 dark:text-gray-600 pt-2">
     {{- partial "post_meta.html" . -}}
   </footer>
   {{- end }}
-  <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
-</article>
+</a>
 {{- end }}
-
+</div>
 {{- if gt $paginator.TotalPages 1 }}
 <footer class="page-footer">
   <nav class="pagination">
