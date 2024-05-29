@@ -19,7 +19,7 @@ Theme based on PaperMod.
 4. Open `http://localhost:1313/` in your browser
 
 
-**IMPORTANT: ** When writing new articles/posts, please make sure to add the `draft: true` flag in the front matter of the post.
+**IMPORTANT:** When writing new articles/posts, please make sure to add the `draft: true` flag in the front matter of the post.
 This will prevent the post from being published on the live site until it is ready, but they will be viewable if the `-D` flag is passed to `hugo server`.
 
 
