@@ -40,39 +40,17 @@
 {{- end }}
 
 <header class="header">
-    <nav class="nav">
-        <div class="logo">
+    <nav>
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             {{- $label_text := (site.Params.label.text | default site.Title) }}
             {{- if site.Title }}
-            <a href="{{ "" | absLangURL }}" accesskey="h" title="{{ $label_text }} (Alt + H)">
-                {{- if site.Params.label.icon }}
-                {{- $img := resources.Get site.Params.label.icon }}
-                {{- if $img }}
-                    {{- $processableFormats := (slice "jpg" "jpeg" "png" "tif" "bmp" "gif") -}}
-                    {{- if hugo.IsExtended -}}
-                        {{- $processableFormats = $processableFormats | append "webp" -}}
-                    {{- end -}}
-                    {{- $prod := (hugo.IsProduction | or (eq site.Params.env "production")) }}
-                    {{- if and (in $processableFormats $img.MediaType.SubType) (eq $prod true)}}
-                        {{- if site.Params.label.iconHeight }}
-                            {{- $img = $img.Resize (printf "x%d" site.Params.label.iconHeight) }}
-                        {{ else }}
-                            {{- $img = $img.Resize "x30" }}
-                        {{- end }}
-                    {{- end }}
-                    <img src="{{ $img.Permalink }}" alt="{{- site.Params.label.alt | default "Logo" -}}" aria-label="logo"
-                        height="{{- site.Params.label.iconHeight | default "30" -}}" class="h-10">
-                {{- else }}
+            <a class="flex items-center space-x-3 rtl:space-x-reverse" href="{{ "" | absLangURL }}" accesskey="h" title="{{ $label_text }} (Alt + H)">
                 <img src="{{- site.Params.label.icon | absURL -}}" alt="{{- site.Params.label.alt | default "Logo" -}}" aria-label="logo"
-                    height="{{- site.Params.label.iconHeight | default "30" -}}" class="h-10">
-                {{- end -}}
-                {{- else if hasPrefix site.Params.label.iconSVG "<svg" }}
-                    {{ site.Params.label.iconSVG | safeHTML }}
-                {{- end -}}
-                {{- $label_text -}}
+                    height="{{- site.Params.label.iconHeight | default "30" -}}" class="h-8 rounded-lg">
+                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">{{- $label_text -}}</span>
             </a>
             {{- end }}
-            <div class="logo-switches">
+            <div class="logo-switches pl-2" style="margin-right: auto;padding-top: 6px;">
                 {{- if (not site.Params.disableThemeToggle) }}
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -118,32 +96,34 @@
                 </ul>
                 {{- end }}
             </div>
-        </div>
-        {{- $currentPage := . }}
-        <ul id="menu">
-            {{- range site.Menus.main }}
-            {{- $menu_item_url := (cond (strings.HasSuffix .URL "/") .URL (printf "%s/" .URL) ) | absLangURL }}
-            {{- $page_url:= $currentPage.Permalink | absLangURL }}
-            {{- $is_search := eq (site.GetPage .KeyName).Layout `search` }}
-            <li>
-                <a href="{{ .URL | absLangURL }}" title="{{ .Title | default .Name }} {{- cond $is_search (" (Alt + /)" | safeHTMLAttr) ("" | safeHTMLAttr ) }}"
-                {{- cond $is_search (" accesskey=/" | safeHTMLAttr) ("" | safeHTMLAttr ) }}>
-                    <span {{- if eq $menu_item_url $page_url }} class="active" {{- end }}>
-                        {{- .Pre }}
-                        {{- .Name -}}
-                        {{ .Post -}}
-                    </span>
-                    {{- if (findRE "://" .URL) }}&nbsp;
-                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
-                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
-                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
-                        <path d="M15 3h6v6"></path>
-                        <path d="M10 14L21 3"></path>
-                    </svg>
+            {{- $currentPage := . }}
+            <div class="w-full md:block md:w-auto" id="navbar-default">
+                <ul class="flex space-x-2">
+                    {{- range site.Menus.main }}
+                    {{- $menu_item_url := (cond (strings.HasSuffix .URL "/") .URL (printf "%s/" .URL) ) | absLangURL }}
+                    {{- $page_url:= $currentPage.Permalink | absLangURL }}
+                    {{- $is_search := eq (site.GetPage .KeyName).Layout `search` }}
+                    <li>
+                        <a class="px-4" href="{{ .URL | absLangURL }}" title="{{ .Title | default .Name }} {{- cond $is_search (" (Alt + /)" | safeHTMLAttr) ("" | safeHTMLAttr ) }}"
+                        {{- cond $is_search (" accesskey=/" | safeHTMLAttr) ("" | safeHTMLAttr ) }}>
+                            <span class="hover:text-red-600 dark:hover:text-red-300 {{- if eq $menu_item_url $page_url }} text-red-500 dark:text-red-400 {{- end }}">
+                                {{- .Pre }}
+                                {{- .Name -}}
+                                {{ .Post -}}
+                            </span>
+                            {{- if (findRE "://" .URL) }}&nbsp;
+                            <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                                stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                                <path d="M15 3h6v6"></path>
+                                <path d="M10 14L21 3"></path>
+                            </svg>
+                            {{- end }}
+                        </a>
+                    </li>
                     {{- end }}
-                </a>
-            </li>
-            {{- end }}
-        </ul>
+                </ul>
+            </div>
+        </div>
     </nav>
 </header>

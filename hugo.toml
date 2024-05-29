@@ -1,7 +1,6 @@
 baseURL = '/'
 languageCode = 'en-us'
 title = 'Pixelators'
-theme = 'PaperMod'
 enableRobotsTXT = true
 
 [menus]
@@ -47,6 +46,7 @@ home = ["HTML", "RSS", "JSON"]
 [params]
 defaultTheme = "auto"
 theme_color = "#e12f35"
+#ShowBreadCrumbs = true
 
 [params.assets]
 theme_color = "#e12f35"
