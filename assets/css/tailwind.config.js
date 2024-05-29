@@ -4,4 +4,7 @@ const rootDir = __dirname + '/../../';
 module.exports = {
     content: [`${rootDir}/layouts/**/*.html`, `${rootDir}/content/**/*.md`, `${rootDir}/themes/**/*.html`],
     darkMode: 'selector',
+    plugins: [
+        require('@tailwindcss/forms'),
+    ],
 }
