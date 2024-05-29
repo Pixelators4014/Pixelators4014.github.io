@@ -1,0 +1,29 @@
+@keyframes slideInFromRight {
+    from {
+        margin-left: 100%;
+        width: 300%;
+    }
+
+    to {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+.slideInFromRight {
+    animation: 0.5s ease-out 0s 1 slideInFromRight;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    animation: 0.5s ease-out 0s 1 fadeIn;
+}
