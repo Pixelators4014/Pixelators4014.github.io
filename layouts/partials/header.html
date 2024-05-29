@@ -46,7 +46,7 @@
             {{- if site.Title }}
             <a class="flex items-center space-x-3 rtl:space-x-reverse" href="{{ "" | absLangURL }}" accesskey="h" title="{{ $label_text }} (Alt + H)">
                 <img src="{{- site.Params.label.icon | absURL -}}" alt="{{- site.Params.label.alt | default "Logo" -}}" aria-label="logo"
-                    height="{{- site.Params.label.iconHeight | default "30" -}}" class="h-8">
+                    height="{{- site.Params.label.iconHeight | default "30" -}}" class="h-8 rounded-lg">
                 <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">{{- $label_text -}}</span>
             </a>
             {{- end }}
