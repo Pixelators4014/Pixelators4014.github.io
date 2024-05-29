@@ -1,4 +1,4 @@
-name: Convert Images
+name: Convert Images to AVIF
 
 on:
   push:
@@ -30,15 +30,6 @@ jobs:
             for img; do
               avif="${img%.*}.avif"
               convert "$img" "$avif"
-            done
-          ' sh {} +
-
-      - name: Convert videos to webm
-        run: |
-          find . -type f \( -name "*.gif" -o -name "*.mp4" -o -name "*.mov" \) ! -path "./static/*" -exec sh -c '
-            for img; do
-              webm="${img%.*}.webm"
-              convert "$img" "$webm"
             done
           ' sh {} +
 
