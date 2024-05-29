@@ -56,7 +56,7 @@
 {{- $term := .Data.Term }}
 {{- range $index, $page := $paginator.Pages }}
 
-<a class="block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}">
+<a class="block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 hover:scale-105 duration-300" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}">
   {{- $isHidden := (.Param "cover.hiddenInList") | default (.Param "cover.hidden") | default false }}
   {{- partial "cover.html" (dict "cxt" . "IsSingle" false "isHidden" $isHidden) }}
   <header class="">
