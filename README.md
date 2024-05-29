@@ -8,7 +8,6 @@ Alt: https://pixelators4014-github-io.pages.dev/
 Team 4014's website
 
 Built with Hugo and Tailwind.
-
 Theme based on PaperMod.
 
 ## Local Development
