@@ -38,3 +38,13 @@ Be sure to mention Team 4014.
 ### Silver Sponsors ($250+)
 
 ### Bronze Sponsors ($100+)
+
+## Past Sponsors
+
+- NASA
+- ViaSat
+- Qualcomm
+- Northrop Grumman
+- Boeing
+- Haas Automation
+- BAE Systems
