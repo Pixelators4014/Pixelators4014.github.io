@@ -1,3 +1,1 @@
-import flamethrower from 'flamethrower-router';
-
-const router = flamethrower();
+import * as Turbo from "@hotwired/turbo"

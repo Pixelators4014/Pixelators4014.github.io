@@ -10,9 +10,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@hotwired/turbo": "^8.0.4",
     "@tailwindcss/forms": "^0.5.7",
     "autoprefixer": "^10.4.19",
-    "flamethrower-router": "^0.0.0-meme.12",
     "postcss": "^8.4.38",
     "postcss-cli": "^11.0.0",
     "postcss-import": "^16.1.0",
