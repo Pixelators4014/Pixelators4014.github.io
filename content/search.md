@@ -5,4 +5,5 @@ layout: "search" # necessary for search
 # description: "Description for Search"
 summary: "search"
 placeholder: "Search for text ..."
+force_hard_load: true
 ---

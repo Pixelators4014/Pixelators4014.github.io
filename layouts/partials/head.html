@@ -169,3 +169,7 @@
 {{- template "partials/templates/twitter_cards.html" . }}
 {{- template "partials/templates/schema_json.html" . }}
 {{- end -}}
+
+{{- if .Param "force_hard_load" -}}
+<meta name="turbo-visit-control" content="reload">
+{{- end -}}
