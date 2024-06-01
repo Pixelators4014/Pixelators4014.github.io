@@ -21,7 +21,9 @@ module.exports = {
 
             },
             'csecondary': {
-
+                'light': '#6c6c6c',
+                DEFAULT: '#6c6c6c',
+                'dark': '#9b9c9d'
             },
             'ctertiary': {
 
