@@ -17,15 +17,6 @@
     transform: scale(0.98);
 }
 
-#searchResults a {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0px;
-    left: 0px;
-    outline: none;
-}
-
 #searchResults .focus {
     transform: scale(0.98);
 }
