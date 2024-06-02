@@ -41,7 +41,9 @@
 
 <header class="header">
     <nav>
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+<!--        TODO: increase blur-->
+        <div class="w-full fixed z-20 top-0 start-0 border-b border-gray-400 dark:border-gray-700 backdrop-blur supports-backdrop-blur:bg-white/95 dark:bg-slate-900/75">
+            <div class="max-w-screen-xl items-center justify-between flex flex-wrap mx-auto p-4">
             {{- $label_text := (site.Params.label.text | default site.Title) }}
             {{- if site.Title }}
             <a class="flex items-center space-x-3 rtl:space-x-reverse" href="{{ "" | absLangURL }}" accesskey="h" title="{{ $label_text }} (Alt + H)">
@@ -123,6 +125,7 @@
                     </li>
                     {{- end }}
                 </ul>
+            </div>
             </div>
         </div>
     </nav>
