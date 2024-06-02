@@ -9,10 +9,7 @@
     {{- partial "head.html" . }}
 </head>
 
-<body class="
-{{- if (or (ne .Kind `page` ) (eq .Layout `archives`) (eq .Layout `search`)) -}}
-{{- print "list" -}}
-{{- end -}}
+<body class="antialiased text-slate-500 dark:text-slate-400 bg-white dark:bg-slate-900
 {{- if eq site.Params.defaultTheme `dark` -}}
 {{- print " dark" }}
 {{- end -}}

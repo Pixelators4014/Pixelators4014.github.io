@@ -1,5 +1,5 @@
 {{- if not (.Param "hideFooter") }}
-<footer class="footer">
+<footer class="footer m-auto text-sm text-center content-center pt-5 pb-5 text-gray-400 dark:text-gray-600">
     {{- if not site.Params.footer.hideCopyright }}
         {{- if site.Copyright }}
         <span>{{ site.Copyright | markdownify }}</span>
@@ -79,7 +79,8 @@
 {{- if (not site.Params.disableThemeToggle) }}
 <script>
     document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
+        console.debug("Theme toggle clicked");
+        if (document.body.classList.contains("dark")) {
             document.body.classList.remove('dark');
             localStorage.setItem("pref-theme", 'light');
         } else {
