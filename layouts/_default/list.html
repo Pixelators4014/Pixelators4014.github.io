@@ -73,7 +73,7 @@
     </h2>
   </header>
   {{- if (ne (.Param "hideSummary") true) }}
-  <p class="font-normal text-gray-700 dark:text-gray-400">{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
+  <p class="font-normal text-gray-700 dark:text-gray-400">{{ .Summary | plainify | htmlUnescape | truncate 140 }}</p>
   {{- end }}
   {{- if not (.Param "hideMeta") }}
   <footer class="text-sm font-normal text-gray-500 dark:text-gray-600 pt-2">
