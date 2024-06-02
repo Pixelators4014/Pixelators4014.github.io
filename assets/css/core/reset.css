@@ -52,37 +52,12 @@ h6 {
     line-height: 1.2;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
 ul {
     padding: 0;
 }
 
 a {
     text-decoration: none;
-}
-
-body,
-figure,
-ul {
-    margin: 0;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    border-spacing: 0;
-    overflow-x: auto;
-    word-break: keep-all;
 }
 
 button,
