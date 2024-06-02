@@ -7,4 +7,9 @@ module.exports = {
     plugins: [
         require('@tailwindcss/forms'),
     ],
+    theme: {
+        fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+        },
+    }
 }
