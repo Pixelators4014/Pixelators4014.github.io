@@ -5,6 +5,7 @@
 
 .footer a {
     color: inherit;
+    text-decoration: underline;
 }
 
 .top-link {
