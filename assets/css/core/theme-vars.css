@@ -28,11 +28,3 @@
     --code-bg: rgb(55, 56, 62);
     --border: rgb(51, 51, 51);
 }
-
-.list {
-    background: var(--code-bg);
-}
-
-.dark.list {
-    background: var(--theme);
-}

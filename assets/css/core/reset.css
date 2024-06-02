@@ -24,11 +24,9 @@ h6 {
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 18px;
     line-height: 1.6;
     word-break: break-word;
-    background: var(--theme);
 }
 
 article,
@@ -88,20 +86,6 @@ table {
 }
 
 button,
-input,
-textarea {
-    padding: 0;
-    font: inherit;
-    background: 0 0;
-    border: 0;
-}
-
-input,
-textarea {
-    outline: 0;
-}
-
-button,
 input[type=button],
 input[type=submit] {
     cursor: pointer;
@@ -114,5 +98,4 @@ textarea:-webkit-autofill {
 
 img {
     display: block;
-    max-width: 100%;
 }
