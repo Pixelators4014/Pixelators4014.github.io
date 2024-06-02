@@ -41,15 +41,3 @@
         justify-content: unset;
     }
 }
-
-@media (prefers-reduced-motion) {
-    /* terms; profile-mode; post-single; post-entry; post-entry; search; search */
-    .terms-tags a:active,
-    .button:active,
-    .post-entry:active,
-    .top-link,
-    #searchResults .focus,
-    #searchResults li:active {
-        transform: none;
-    }
-}
