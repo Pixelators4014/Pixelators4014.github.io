@@ -1,9 +1,11 @@
 const path = require('path');
 
 module.exports = {
-  entry: './src/index.js',
-  output: {
-    path: path.resolve(__dirname, 'assets/js/'),
-    filename: 'main.js',
-  },
+    entry: {
+        'turbo': './src/turbo.js',
+    },
+    output: {
+        path: path.resolve(__dirname, 'assets/js/'),
+        filename: '[name].js',
+    },
 };

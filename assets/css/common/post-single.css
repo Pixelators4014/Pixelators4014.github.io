@@ -300,16 +300,6 @@
     margin-bottom: 10px;
 }
 
-.post-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.post-tags li {
-    display: inline-block;
-}
-
 .post-tags a,
 .share-buttons,
 .paginav {

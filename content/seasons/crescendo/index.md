@@ -1,5 +1,6 @@
 +++
 title = 'Crescendo'
+summary = 'Our 2024 season was an eventful one. We focused on our new swerve drive and new VSLAM and april tags position tracking technology.'
 +++
 
 ![Bot Picture](./frc_2024_bot_render.avif)

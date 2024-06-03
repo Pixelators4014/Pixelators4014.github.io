@@ -9,16 +9,13 @@
     {{- partial "head.html" . }}
 </head>
 
-<body class="
-{{- if (or (ne .Kind `page` ) (eq .Layout `archives`) (eq .Layout `search`)) -}}
-{{- print "list" -}}
-{{- end -}}
+<body class="antialiased bg-white dark:bg-slate-900 text-lg leading-normal
 {{- if eq site.Params.defaultTheme `dark` -}}
 {{- print " dark" }}
 {{- end -}}
 " id="top">
     {{- partialCached "header.html" . .Page -}}
-    <main class="main">
+    <main id="main" class="main" style="margin-top: 60px">
         {{- block "main" . }}{{ end }}
     </main>
     {{ partialCached "footer.html" . .Layout .Kind (.Param "hideFooter") (.Param "ShowCodeCopyButtons") -}}
