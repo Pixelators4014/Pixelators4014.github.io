@@ -1,31 +1,18 @@
-@keyframes slideInFromRight {
-    from {
-        margin-left: 100%;
-        width: 300%;
-    }
-
-    to {
-        margin-left: 0;
-        width: 100%;
-    }
+/* The typing effect */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
 }
 
-.slideInFromRight {
-    animation: 0.5s ease-out 0s 1 slideInFromRight;
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: red; }
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-.fadeIn {
-    animation: 0.5s ease-out 0s 1 fadeIn;
+.typewriter {
+    border-right: .15em solid red;
+    animation: blink-caret .75s step-end infinite;
 }
 
 /* TODO: Prefers reduce motion ... */

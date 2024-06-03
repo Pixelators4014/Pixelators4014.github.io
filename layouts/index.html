@@ -1,46 +1,146 @@
 {{ define "main" }}
-<article class="post-single">
-    <header class="page-header">
-        <h1>{{ .Title }}</h1>
-    </header>
-    <div class="post-content">
-        <!-- Note that the content for index.html, as a sort of list page, will pull from content/_index.md -->
-        {{ .Content }}
+{{ $hero_img := resources.Get "images/homepage/landing.jpg" }}
+{{ $hero_img := $hero_img.Process "webp" }}
+<section style="background-image: url('{{ $hero_img.RelPermalink }}');"
+         class="relative flex items-center justify-center h-screen bg-cover bg-center bg-no-repeat">
+    <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12 rounded-lg backdrop-blur-3xl backdrop-brightness-200 dark:backdrop-blur dark:backdrop-brightness-50 animate-fade-right animate-duration-[1500ms] animate-ease-out">
+        <a href="/blog/2024_5_25_orin_coprocessor/"
+           class="inline-flex justify-between items-center py-1 px-4 mb-7 text-sm text-gray-700 bg-gray-100 rounded-full dark:bg-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 hover:scale-110 duration-300"
+           role="alert">
+            <span
+                    class="text-sm font-medium">Check out our latest blog post</span>
+            <svg class="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                      clip-rule="evenodd"></path>
+            </svg>
+        </a>
+        <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-black dark:text-white md:text-5xl lg:text-6xl font-homepageTitle">
+            <span id="titleHeading" class="typewriter">Pixelators</span>
+        </h1>
+        <p class="mb-8 text-lg font-normal text-slate-800 lg:text-xl sm:px-16 xl:px-48 dark:text-slate-400">Stanford OHS's FRC Robotics Team</p>
+        <div class="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
+            <a href="/about"
+               class="inline-flex justify-center items-center py-3 px-5 font-medium text-center text-slate-900 dark:text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900 hover:scale-110 duration-300">
+                Learn more
+                <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                          d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                          clip-rule="evenodd"></path>
+                </svg>
+            </a>
+            <a href="#"
+               class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-gray-200 hover:text-white rounded-lg bg-gradient-to-br from-red-500 to-red-800 hover:from-red-450 hover:to-red-700  hover:scale-110 duration-300">
+                Join Us
+            </a>
+        </div>
+        <div class="px-4 mx-auto text-center md:max-w-screen-md lg:max-w-screen-lg lg:px-36">
+            <span class="font-semibold text-gray-400 uppercase">SPONSORED BY</span>
+            {{ $convert := images.Process "webp" }}
+            {{ $filter := images.Grayscale }}
+            <div class="flex flex-wrap justify-center items-center mt-8 text-gray-500 sm:justify-between">
+                <a href="https://nasa.gov" class="mr-5 mb-5 lg:mb-0 hover:text-gray-800 dark:hover:text-gray-400">
+                    {{ $nasa_logo := resources.Get "images/sponsor/nasa_text.png" | images.Filter $filter | images.Filter $convert }}
+                    <img src="{{ $nasa_logo.RelPermalink }}" alt="NASA" class="h-16"/>
+                </a>
+                <a href="https://www.northropgrumman.com/" class="mr-5 mb-5 lg:mb-0 hover:text-gray-800 dark:hover:text-gray-400">
+                    {{ $ng := resources.Get "images/sponsor/northrop_grumman.png" | images.Filter $filter | images.Filter $convert}}
+                    <img src="{{ $ng.RelPermalink }}" alt="NASA" class="h-16"/>
+                </a>
+                <a href="https://www.baesystems.com/en/home" class="mr-5 mb-5 lg:mb-0 hover:text-gray-800 dark:hover:text-gray-400">
+                    {{ $bae := resources.Get "images/sponsor/bae.png" | images.Filter $filter | images.Filter $convert}}
+                    <img src="{{ $bae.RelPermalink }}" alt="NASA" class="h-12"/>
+                </a>
+            </div>
+        </div>
     </div>
-</article>
+</section>
 
-<div class="gap-8 columns-3 fadeIn">
-    {{ $image1 := resources.Get "images/homepage_1.png" }}
-    {{ $image2 := resources.Get "images/homepage_2.png" }}
-    {{ $image3 := resources.Get "images/homepage_3.png" }}
-    {{ $image4 := resources.Get "images/homepage_4.png" }}
-    {{ $image5 := resources.Get "images/homepage_5.png" }}
-    {{ $image6 := resources.Get "images/homepage_6.png" }}
-    {{ $image7 := resources.Get "images/homepage_7.png" }}
-    {{ $image8 := resources.Get "images/homepage_8.png" }}
-    {{ $image1 := $image1.Resize "500x" }}
-    {{ $image2 := $image2.Resize "500x" }}
-    {{ $image3 := $image3.Resize "500x" }}
-    {{ $image4 := $image4.Resize "500x" }}
-    {{ $image5 := $image5.Resize "500x" }}
-    {{ $image6 := $image6.Resize "500x" }}
-    {{ $image7 := $image7.Resize "500x" }}
-    {{ $image8 := $image8.Resize "500x" }}
-    {{ $image1 := $image1.Process "webp" }}
-    {{ $image2 := $image2.Process "webp" }}
-    {{ $image3 := $image3.Process "webp" }}
-    {{ $image4 := $image4.Process "webp" }}
-    {{ $image5 := $image5.Process "webp" }}
-    {{ $image6 := $image6.Process "webp" }}
-    {{ $image7 := $image7.Process "webp" }}
-    {{ $image8 := $image8.Process "webp" }}
-    <img alt="Pixelators at work" class="rounded-lg w-full object-scale-down aspect-4x3 my-8" src="{{ $image1.RelPermalink }}" />
-    <img alt="Pixelators at work" class="rounded-lg w-full object-scale-down aspect-4x3 my-8" src="{{ $image2.RelPermalink }}" />
-    <img alt="Pixelators at work" class="rounded-lg w-full object-scale-down aspect-4x3 my-8" src="{{ $image3.RelPermalink }}" />
-    <img alt="Pixelators at work" class="rounded-lg w-full object-scale-down aspect-4x3 my-8" src="{{ $image4.RelPermalink }}" />
-    <img alt="Pixelators at work" class="rounded-lg w-full object-scale-down aspect-4x3 my-8" src="{{ $image5.RelPermalink }}" />
-    <img alt="Pixelators at work" class="rounded-lg w-full object-scale-down aspect-4x3 my-8" src="{{ $image6.RelPermalink }}" />
-    <img alt="Pixelators at work" class="rounded-lg w-full object-scale-down aspect-4x3 my-8" src="{{ $image7.RelPermalink }}" />
-    <img alt="Pixelators at work" class="rounded-lg w-full object-scale-down aspect-4x3 my-8" src="{{ $image8.RelPermalink }}" />
+<div class="main" style="margin-top: 100px">
+    <article class="post-single invisible intersect:visible intersect:animate-jump-in intersect:animate-duration-1000 intersect:animate-delay-[100ms] intersect:animate-ease-in-out">
+        <div class="post-content">
+            {{ .Content }}
+        </div>
+    </article>
+
+    <section>
+        <div class="px-4 py-8 mx-auto text-center lg:py-16 lg:px-6">
+            <dl class="columns-3 gap-8 text-gray-900 dark:text-white">
+                <div class="flex flex-col items-center justify-center invisible intersect:visible intersect:animate-fade-right intersect:animate-duration-1000 intersect:animate-delay-[100ms] intersect:animate-ease-out">
+                    <dt class="mb-2 text-3xl md:text-4xl font-extrabold">10+</dt>
+                    <dd class="font-light text-gray-500 dark:text-gray-400">seasons</dd>
+                </div>
+                <div class="flex flex-col items-center justify-center invisible intersect:visible intersect:animate-fade-up intersect:animate-duration-1000 intersect:animate-delay-[100ms] intersect:animate-ease-out">
+                    <dt class="mb-2 text-3xl md:text-4xl font-extrabold">3</dt>
+                    <dd class="font-light text-gray-500 dark:text-gray-400">countries</dd>
+                </div>
+                <div class="flex flex-col items-center justify-center invisible intersect:visible intersect:animate-fade-left intersect:animate-duration-1000 intersect:animate-delay-[100ms] intersect:animate-ease-out">
+                    <dt class="mb-2 text-3xl md:text-4xl font-extrabold">11</dt>
+                    <dd class="font-light text-gray-500 dark:text-gray-400">members</dd>
+                </div>
+            </dl>
+        </div>
+    </section>
+
+    <div class="gap-8 columns-3 fadeIn">
+        {{ $image1 := resources.Get "images/homepage/homepage_1.png" }}
+        {{ $image2 := resources.Get "images/homepage/homepage_2.png" }}
+        {{ $image3 := resources.Get "images/homepage/homepage_3.png" }}
+        {{ $image4 := resources.Get "images/homepage/homepage_4.png" }}
+        {{ $image5 := resources.Get "images/homepage/homepage_5.png" }}
+        {{ $image6 := resources.Get "images/homepage/homepage_6.png" }}
+        {{ $image7 := resources.Get "images/homepage/homepage_7.png" }}
+        {{ $image8 := resources.Get "images/homepage/homepage_8.png" }}
+        {{ $image1 := $image1.Resize "500x" }}
+        {{ $image2 := $image2.Resize "500x" }}
+        {{ $image3 := $image3.Resize "500x" }}
+        {{ $image4 := $image4.Resize "500x" }}
+        {{ $image5 := $image5.Resize "500x" }}
+        {{ $image6 := $image6.Resize "500x" }}
+        {{ $image7 := $image7.Resize "500x" }}
+        {{ $image8 := $image8.Resize "500x" }}
+        {{ $image1 := $image1.Process "webp" }}
+        {{ $image2 := $image2.Process "webp" }}
+        {{ $image3 := $image3.Process "webp" }}
+        {{ $image4 := $image4.Process "webp" }}
+        {{ $image5 := $image5.Process "webp" }}
+        {{ $image6 := $image6.Process "webp" }}
+        {{ $image7 := $image7.Process "webp" }}
+        {{ $image8 := $image8.Process "webp" }}
+        {{ $img_classes := "rounded-lg w-full object-scale-down aspect-4x3 my-8 invisible intersect:visible intersect:animate-flip-up intersect:animate-duration-[750ms] intersect:animate-delay-100" }}
+        <img alt="Pixelators at work" class="{{ $img_classes }}"
+             src="{{ $image1.RelPermalink }}"/>
+        <img alt="Pixelators at work" class="{{ $img_classes }}"
+             src="{{ $image2.RelPermalink }}"/>
+        <img alt="Pixelators at work" class="{{ $img_classes }}"
+             src="{{ $image3.RelPermalink }}"/>
+        <img alt="Pixelators at work" class="{{ $img_classes }}"
+             src="{{ $image4.RelPermalink }}"/>
+        <img alt="Pixelators at work" class="{{ $img_classes }}"
+             src="{{ $image5.RelPermalink }}"/>
+        <img alt="Pixelators at work" class="{{ $img_classes }}"
+             src="{{ $image6.RelPermalink }}"/>
+        <img alt="Pixelators at work" class="{{ $img_classes }}"
+             src="{{ $image7.RelPermalink }}"/>
+        <img alt="Pixelators at work" class="{{ $img_classes }}"
+             src="{{ $image8.RelPermalink }}"/>
+    </div>
 </div>
+
+<script>
+    document.getElementById("main").classList.remove("main");
+    const typewriter = document.getElementById("titleHeading");
+    const fullText = typewriter.textContent;
+    typewriter.textContent = " ";
+    let i = 0;
+    const interval = setInterval(() => {
+        if (i < fullText.length) {
+            typewriter.textContent += fullText.charAt(i);
+            i++;
+        } else {
+            clearInterval(interval);
+        }
+    }, 100);
+</script>
 {{ end }}

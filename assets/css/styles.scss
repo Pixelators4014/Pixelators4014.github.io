@@ -266,6 +266,13 @@ $rose-800: #9f1239;
 $rose-900: #881337;
 $rose-950: #4c0519;
 
+@layer base {
+  @font-face {
+    font-family: 'Monocraft';
+    src: url(/fonts/Monocraft.ttf) format('truetype');
+  }
+}
+
 body.dark #moon {
   vertical-align: middle;
   display: none;
@@ -282,3 +289,5 @@ main a {
 main a:hover {
   color: $red-600;
 }
+
+

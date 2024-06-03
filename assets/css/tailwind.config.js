@@ -6,11 +6,14 @@ module.exports = {
     darkMode: 'selector',
     plugins: [
         require('@tailwindcss/forms'),
+        require('tailwindcss-animated'),
+        require('tailwindcss-intersect')
     ],
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Inter', 'sans-serif']
+                sans: ['Inter', 'sans-serif'],
+                homepageTitle: ['Monocraft']
             }
         }
     }
