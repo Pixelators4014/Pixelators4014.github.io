@@ -50,7 +50,7 @@
                 {{ $icon := $icon.Process "png" }}
                 {{ $icon := $icon.Resize "48x" }}
                 <img src="{{- $icon.RelPermalink -}}" alt="{{- site.Params.label.alt | default "Logo" -}}" aria-label="logo"
-                    width="48" height="48" class="h-8 rounded-lg">
+                    width="32" height="32" class="h-8 rounded-lg">
                 <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">{{- $label_text -}}</span>
             </a>
             {{- end }}
