@@ -11,8 +11,6 @@ html {
     text-size-adjust: 100%;
 }
 
-a,
-button,
 body,
 h1,
 h2,
@@ -24,8 +22,6 @@ h6 {
 }
 
 body {
-    font-size: 18px;
-    line-height: 1.6;
     word-break: break-word;
 }
 
@@ -33,7 +29,6 @@ article,
 aside,
 figcaption,
 figure,
-footer,
 header,
 hgroup,
 main,
@@ -50,10 +45,6 @@ h4,
 h5,
 h6 {
     line-height: 1.2;
-}
-
-ul {
-    padding: 0;
 }
 
 a {
