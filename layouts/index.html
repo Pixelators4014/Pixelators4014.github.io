@@ -1,7 +1,7 @@
 {{ define "main" }}
 {{ $hero_img := resources.Get "images/homepage/landing.jpg" }}
 {{ $hero_img := $hero_img.Process "webp" }}
-{{ $hero_img := $hero_img.Resize "2000x" }}
+{{ $hero_img := $hero_img.Resize "1500x" }}
 <section style="background-image: url('{{ $hero_img.RelPermalink }}');"
          class="relative flex items-center justify-center h-screen bg-cover bg-center bg-no-repeat">
     <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12 rounded-lg backdrop-blur-3xl backdrop-brightness-200 dark:backdrop-blur dark:backdrop-brightness-50 animate-fade-right animate-duration-[1500ms] animate-ease-out">
@@ -43,17 +43,17 @@
             <div class="flex flex-wrap justify-center items-center mt-8 text-gray-500 sm:justify-between">
                 <a href="https://nasa.gov" class="mr-5 mb-5 lg:mb-0 hover:text-gray-800 dark:hover:text-gray-400">
                     {{ $nasa_logo := resources.Get "images/sponsor/nasa_text.png" | images.Filter $filter | images.Filter $convert }}
-                    {{ $nasa_logo := $nasa_logo.Resize "600x" }}
+                    {{ $nasa_logo := $nasa_logo.Resize "300x" }}
                     <img src="{{ $nasa_logo.RelPermalink }}" alt="NASA" class="h-16"/>
                 </a>
                 <a href="https://www.northropgrumman.com/" class="mr-5 mb-5 lg:mb-0 hover:text-gray-800 dark:hover:text-gray-400">
                     {{ $ng := resources.Get "images/sponsor/northrop_grumman.png" | images.Filter $filter | images.Filter $convert}}
-                    {{ $nasa_logo := $nasa_logo.Resize "600x" }}
+                    {{ $nasa_logo := $nasa_logo.Resize "300x" }}
                     <img src="{{ $ng.RelPermalink }}" alt="NASA" class="h-16"/>
                 </a>
                 <a href="https://www.baesystems.com/en/home" class="mr-5 mb-5 lg:mb-0 hover:text-gray-800 dark:hover:text-gray-400">
                     {{ $bae := resources.Get "images/sponsor/bae.png" | images.Filter $filter | images.Filter $convert}}
-                    {{ $nasa_logo := $nasa_logo.Resize "600x" }}
+                    {{ $nasa_logo := $nasa_logo.Resize "300x" }}
                     <img src="{{ $bae.RelPermalink }}" alt="NASA" class="h-12"/>
                 </a>
             </div>
@@ -96,14 +96,14 @@
         {{ $image6 := resources.Get "images/homepage/homepage_6.png" }}
         {{ $image7 := resources.Get "images/homepage/homepage_7.png" }}
         {{ $image8 := resources.Get "images/homepage/homepage_8.png" }}
-        {{ $image1 := $image1.Resize "500x" }}
-        {{ $image2 := $image2.Resize "500x" }}
-        {{ $image3 := $image3.Resize "500x" }}
-        {{ $image4 := $image4.Resize "500x" }}
-        {{ $image5 := $image5.Resize "500x" }}
-        {{ $image6 := $image6.Resize "500x" }}
-        {{ $image7 := $image7.Resize "500x" }}
-        {{ $image8 := $image8.Resize "500x" }}
+        {{ $image1 := $image1.Resize "400x" }}
+        {{ $image2 := $image2.Resize "400x" }}
+        {{ $image3 := $image3.Resize "400x" }}
+        {{ $image4 := $image4.Resize "400x" }}
+        {{ $image5 := $image5.Resize "400x" }}
+        {{ $image6 := $image6.Resize "400x" }}
+        {{ $image7 := $image7.Resize "400x" }}
+        {{ $image8 := $image8.Resize "400x" }}
         {{ $image1 := $image1.Process "webp" }}
         {{ $image2 := $image2.Process "webp" }}
         {{ $image3 := $image3.Process "webp" }}
