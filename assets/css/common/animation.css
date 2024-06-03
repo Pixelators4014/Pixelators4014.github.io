@@ -14,6 +14,22 @@
     animation: 0.5s ease-out 0s 1 slideInFromRight;
 }
 
+@keyframes slideInFromLeft {
+    from {
+        margin-right: 100%;
+        width: 300%;
+    }
+
+    to {
+        margin-right: 0;
+        width: 100%;
+    }
+}
+
+.slideInFromLeft {
+    animation: 0.5s ease-out 0s 1 slideInFromLeft;
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
