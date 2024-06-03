@@ -100,7 +100,7 @@
 {{- end -}}
 
 {{- /* TODO: Fingerprint */}}
-{{- $main_js :=  resources.Get "js/main.js" }}
+{{- $main_js :=  resources.Get "js/turbo.js" }}
 <script defer crossorigin="anonymous" src="{{ $main_js.RelPermalink }}"></script>
 
 {{- /* Favicons */}}
