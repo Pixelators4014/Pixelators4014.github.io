@@ -23,7 +23,7 @@
         <div class="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
             <a href="/about"
                class="inline-flex justify-center items-center py-3 px-5 font-medium text-center text-slate-900 dark:text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900 hover:scale-110 duration-300">
-                Learn more
+                About
                 <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                      xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd"
@@ -43,14 +43,17 @@
             <div class="flex flex-wrap justify-center items-center mt-8 text-gray-500 sm:justify-between">
                 <a href="https://nasa.gov" class="mr-5 mb-5 lg:mb-0 hover:text-gray-800 dark:hover:text-gray-400">
                     {{ $nasa_logo := resources.Get "images/sponsor/nasa_text.png" | images.Filter $filter | images.Filter $convert }}
+                    {{ $nasa_logo := $nasa_logo.Resize "600x" }}
                     <img src="{{ $nasa_logo.RelPermalink }}" alt="NASA" class="h-16"/>
                 </a>
                 <a href="https://www.northropgrumman.com/" class="mr-5 mb-5 lg:mb-0 hover:text-gray-800 dark:hover:text-gray-400">
                     {{ $ng := resources.Get "images/sponsor/northrop_grumman.png" | images.Filter $filter | images.Filter $convert}}
+                    {{ $nasa_logo := $nasa_logo.Resize "600x" }}
                     <img src="{{ $ng.RelPermalink }}" alt="NASA" class="h-16"/>
                 </a>
                 <a href="https://www.baesystems.com/en/home" class="mr-5 mb-5 lg:mb-0 hover:text-gray-800 dark:hover:text-gray-400">
                     {{ $bae := resources.Get "images/sponsor/bae.png" | images.Filter $filter | images.Filter $convert}}
+                    {{ $nasa_logo := $nasa_logo.Resize "600x" }}
                     <img src="{{ $bae.RelPermalink }}" alt="NASA" class="h-12"/>
                 </a>
             </div>
