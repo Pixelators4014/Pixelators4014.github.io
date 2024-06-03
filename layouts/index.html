@@ -1,7 +1,4 @@
 {{ define "main" }}
-<script>
-    document.getElementById("main").classList.remove("main");
-</script>
 {{ $hero_img := resources.Get "images/homepage/landing.jpg" }}
 {{ $hero_img := $hero_img.Process "webp" }}
 <section style="background-image: url('{{ $hero_img.RelPermalink }}');"
@@ -19,7 +16,8 @@
             </svg>
         </a>
         <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-black dark:text-white md:text-5xl lg:text-6xl font-homepageTitle">
-            Pixelators</h1>
+            <span id="titleHeading" class="typewriter">Pixelators</span>
+        </h1>
         <p class="mb-8 text-lg font-normal text-slate-800 lg:text-xl sm:px-16 xl:px-48 dark:text-slate-400">Stanford OHS's FRC Robotics Team</p>
         <div class="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
             <a href="/about"
@@ -129,4 +127,20 @@
              src="{{ $image8.RelPermalink }}"/>
     </div>
 </div>
+
+<script>
+    document.getElementById("main").classList.remove("main");
+    const typewriter = document.getElementById("titleHeading");
+    const fullText = typewriter.textContent;
+    typewriter.textContent = " ";
+    let i = 0;
+    const interval = setInterval(() => {
+        if (i < fullText.length) {
+            typewriter.textContent += fullText.charAt(i);
+            i++;
+        } else {
+            clearInterval(interval);
+        }
+    }, 100);
+</script>
 {{ end }}

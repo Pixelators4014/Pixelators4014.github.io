@@ -7,7 +7,12 @@
 /* The typewriter cursor effect */
 @keyframes blink-caret {
     from, to { border-color: transparent }
-    50% { border-color: orange; }
+    50% { border-color: red; }
+}
+
+.typewriter {
+    border-right: .15em solid red;
+    animation: blink-caret .75s step-end infinite;
 }
 
 /* TODO: Prefers reduce motion ... */
