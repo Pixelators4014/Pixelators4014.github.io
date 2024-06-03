@@ -41,14 +41,16 @@
 
 <header class="header">
     <nav>
-<!--        TODO: increase blur-->
         <div class="w-full fixed z-20 top-0 start-0 border-b border-gray-400 dark:border-gray-700 backdrop-blur-lg supports-backdrop-blur:bg-white/95 dark:bg-slate-900/75">
             <div class="max-w-screen-xl items-center justify-between flex flex-wrap mx-auto p-4">
             {{- $label_text := (site.Params.label.text | default site.Title) }}
             {{- if site.Title }}
             <a class="flex items-center space-x-3 rtl:space-x-reverse" href="{{ "" | absLangURL }}" accesskey="h" title="{{ $label_text }} (Alt + H)">
-                <img src="{{- site.Params.label.icon | absURL -}}" alt="{{- site.Params.label.alt | default "Logo" -}}" aria-label="logo"
-                    height="{{- site.Params.label.iconHeight | default "30" -}}" class="h-8 rounded-lg">
+                {{ $icon := resources.Get site.Params.label.icon }}
+                {{ $icon := $icon.Process "webp" }}
+                {{ $icon := $icon.Resize "32x" }}
+                <img src="{{- $icon.RelPermalink -}}" alt="{{- site.Params.label.alt | default "Logo" -}}" aria-label="logo"
+                    width="32" height="32" class="h-8 rounded-lg">
                 <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">{{- $label_text -}}</span>
             </a>
             {{- end }}
