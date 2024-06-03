@@ -47,7 +47,7 @@
             {{- if site.Title }}
             <a class="flex items-center space-x-3 rtl:space-x-reverse" href="{{ "" | absLangURL }}" accesskey="h" title="{{ $label_text }} (Alt + H)">
                 {{ $icon := resources.Get site.Params.label.icon }}
-                {{ $icon := $icon.Process "webp" }}
+                {{ $icon := $icon.Process "png" }}
                 {{ $icon := $icon.Resize "32x" }}
                 <img src="{{- $icon.RelPermalink -}}" alt="{{- site.Params.label.alt | default "Logo" -}}" aria-label="logo"
                     width="32" height="32" class="h-8 rounded-lg">
