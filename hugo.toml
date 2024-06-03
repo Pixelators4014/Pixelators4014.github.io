@@ -57,6 +57,10 @@ icon = "images/logo.avif"
 alt = "Pixelators Logo"
 iconHeight = 20
 
+[[params.socialIcons]]
+name = "github"
+url = "https://github.com/Pixelators4014/"
+
 [module]
 [[module.imports]]
 path = "hugo-notice"

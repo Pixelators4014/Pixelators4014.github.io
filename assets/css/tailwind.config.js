@@ -8,8 +8,10 @@ module.exports = {
         require('@tailwindcss/forms'),
     ],
     theme: {
-        fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-        },
+        extend: {
+            fontFamily: {
+                sans: ['Inter', 'sans-serif']
+            }
+        }
     }
 }

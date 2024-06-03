@@ -274,3 +274,11 @@ body.dark #moon {
 body:not(.dark) #sun {
   display: none;
 }
+
+main a {
+  color: $red-500;
+}
+
+main a:hover {
+  color: $red-600;
+}

@@ -108,7 +108,7 @@
                     <li>
                         <a class="px-4" href="{{ .URL | absLangURL }}" title="{{ .Title | default .Name }} {{- cond $is_search (" (Alt + /)" | safeHTMLAttr) ("" | safeHTMLAttr ) }}"
                         {{- cond $is_search (" accesskey=/" | safeHTMLAttr) ("" | safeHTMLAttr ) }}>
-                            <span class="hover:text-red-600 dark:hover:text-red-300 {{- if eq $menu_item_url $page_url }} text-red-500 dark:text-red-400 {{- end }}">
+                            <span class="hover:text-red-600 {{- if eq $menu_item_url $page_url }} text-red-500 {{- end }}">
                                 {{- .Pre }}
                                 {{- .Name -}}
                                 {{ .Post -}}
