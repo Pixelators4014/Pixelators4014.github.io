@@ -44,17 +44,17 @@
                 <a href="https://nasa.gov" class="mr-5 mb-5 lg:mb-0 hover:text-gray-800 dark:hover:text-gray-400">
                     {{ $nasa_logo := resources.Get "images/sponsor/nasa_text.png" | images.Filter $filter | images.Filter $convert }}
                     {{ $nasa_logo := $nasa_logo.Resize "300x" }}
-                    <img src="{{ $nasa_logo.RelPermalink }}" alt="NASA" class="h-16"/>
+                    <img src="{{ $nasa_logo.RelPermalink }}" alt="NASA logo" class="h-16"/>
                 </a>
                 <a href="https://www.northropgrumman.com/" class="mr-5 mb-5 lg:mb-0 hover:text-gray-800 dark:hover:text-gray-400">
                     {{ $ng := resources.Get "images/sponsor/northrop_grumman.png" | images.Filter $filter | images.Filter $convert}}
                     {{ $nasa_logo := $nasa_logo.Resize "300x" }}
-                    <img src="{{ $ng.RelPermalink }}" alt="NASA" class="h-16"/>
+                    <img src="{{ $ng.RelPermalink }}" alt="Northrop Grumman logo" class="h-16"/>
                 </a>
                 <a href="https://www.baesystems.com/en/home" class="mr-5 mb-5 lg:mb-0 hover:text-gray-800 dark:hover:text-gray-400">
                     {{ $bae := resources.Get "images/sponsor/bae.png" | images.Filter $filter | images.Filter $convert}}
                     {{ $nasa_logo := $nasa_logo.Resize "300x" }}
-                    <img src="{{ $bae.RelPermalink }}" alt="NASA" class="h-12"/>
+                    <img src="{{ $bae.RelPermalink }}" alt="BAE Systems logo" class="h-12"/>
                 </a>
             </div>
         </div>
