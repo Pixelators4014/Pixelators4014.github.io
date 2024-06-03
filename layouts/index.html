@@ -1,6 +1,7 @@
 {{ define "main" }}
 {{ $hero_img := resources.Get "images/homepage/landing.jpg" }}
 {{ $hero_img := $hero_img.Process "webp" }}
+{{ $hero_img := $hero_img.Resize "2000x" }}
 <section style="background-image: url('{{ $hero_img.RelPermalink }}');"
          class="relative flex items-center justify-center h-screen bg-cover bg-center bg-no-repeat">
     <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12 rounded-lg backdrop-blur-3xl backdrop-brightness-200 dark:backdrop-blur dark:backdrop-brightness-50 animate-fade-right animate-duration-[1500ms] animate-ease-out">
