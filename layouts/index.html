@@ -132,17 +132,20 @@
 </div>
 
 <script>
-    const typewriter = document.getElementById("titleHeading");
-    const fullText = typewriter.textContent;
-    typewriter.textContent = " ";
-    let i = 0;
-    const interval = setInterval(() => {
-        if (i < fullText.length) {
-            typewriter.textContent += fullText.charAt(i);
-            i++;
-        } else {
-            clearInterval(interval);
-        }
-    }, 100);
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!prefersReducedMotion) {
+        const typewriter = document.getElementById("titleHeading");
+        const fullText = typewriter.textContent;
+        typewriter.textContent = " ";
+        let i = 0;
+        const interval = setInterval(() => {
+            if (i < fullText.length) {
+                typewriter.textContent += fullText.charAt(i);
+                i++;
+            } else {
+                clearInterval(interval);
+            }
+        }, 100);
+    }
 </script>
 {{ end }}
