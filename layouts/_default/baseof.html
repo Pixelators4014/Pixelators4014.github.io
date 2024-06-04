@@ -16,6 +16,16 @@
 {{- print " dark" }}
 {{- end -}}
 " id="top">
+    {{- if site.Params.sentry }}
+        {{- $sentry_js :=  resources.Get "js/sentry.js" }}
+        {{- if not site.Params.assets.disableFingerprinting }}
+        {{ $sentry_js = $sentry_js | resources.Fingerprint "sha512" }}
+        <script defer crossorigin="anonymous" src="{{ $sentry_js.RelPermalink }}" integrity="{{ $sentry_js.Data.Integrity }}"></script>
+        {{- else }}
+        <script defer crossorigin="anonymous" src="{{ $sentry_js.RelPermalink }}"></script>
+        {{- end }}
+    {{- end }}
+
     {{- partialCached "header.html" . .Page -}}
     {{- block "body" . }}{{ end }}
     <main id="main" class="main" style="margin-top: 60px">
