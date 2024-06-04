@@ -1,5 +1,5 @@
-{{- if lt hugo.Version "0.112.4" }}
-{{- errorf "=> hugo v0.112.4 or greater is required for hugo-PaperMod to build " }}
+{{- if lt hugo.Version "0.120.0" }}
+{{- errorf "=> hugo v0.120.0 or greater is required for this site to build " }}
 {{- end -}}
 
 <!DOCTYPE html>
@@ -7,14 +7,27 @@
 
 <head>
     {{- partial "head.html" . }}
+    {{ block "head" . }}
+    {{ end }}
 </head>
 
-<body class="antialiased bg-white dark:bg-slate-900 text-lg leading-normal
+<body class="antialiased bg-white dark:bg-slate-900 text-lg leading-normal scroll-smooth
 {{- if eq site.Params.defaultTheme `dark` -}}
 {{- print " dark" }}
 {{- end -}}
 " id="top">
+    {{- if site.Params.sentry }}
+        {{- $sentry_js :=  resources.Get "js/sentry.js" }}
+        {{- if not site.Params.assets.disableFingerprinting }}
+        {{ $sentry_js = $sentry_js | resources.Fingerprint "sha512" }}
+        <script defer crossorigin="anonymous" src="{{ $sentry_js.RelPermalink }}" integrity="{{ $sentry_js.Data.Integrity }}"></script>
+        {{- else }}
+        <script defer crossorigin="anonymous" src="{{ $sentry_js.RelPermalink }}"></script>
+        {{- end }}
+    {{- end }}
+
     {{- partialCached "header.html" . .Page -}}
+    {{- block "body" . }}{{ end }}
     <main id="main" class="main" style="margin-top: 60px">
         {{- block "main" . }}{{ end }}
     </main>

@@ -1,9 +1,5 @@
 {{- define "main" }}
 
-{{- if (and site.Params.profileMode.enabled .IsHome) }}
-{{- partial "index_profile.html" . }}
-{{- else }} {{/* if not profileMode */}}
-
 {{- if not .IsHome | and .Title }}
 <header class="page-header">
   {{- partial "breadcrumbs.html" . }}
@@ -49,10 +45,6 @@
 
 {{- $paginator := .Paginate $pages }}
 
-{{- if and .IsHome site.Params.homeInfoParams (eq $paginator.PageNumber 1) }}
-{{- partial "home_info.html" . }}
-{{- end }}
-
 {{- $term := .Data.Term }}
 {{- range $index, $page := $paginator.Pages }}
 
@@ -77,7 +69,7 @@
   {{- end }}
   {{- if not (.Param "hideMeta") }}
   <footer class="text-sm font-normal text-gray-500 dark:text-gray-600 pt-2">
-    {{- partial "post_meta.html" . -}}
+    {{- partial "post/post_meta.html" . -}}
   </footer>
   {{- end }}
 </a>
@@ -105,7 +97,4 @@
   </nav>
 </footer>
 {{- end }}
-
-{{- end }}{{/* end profileMode */}}
-
 {{- end }}{{- /* end main */ -}}

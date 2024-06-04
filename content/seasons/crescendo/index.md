@@ -51,5 +51,5 @@ The code for that node can be found on [GitHub](https://github.com/Pixelators401
 - Neel Gadde (Design)
 - Veronica Howard (Fabrication)
 
-![2024 Members](./Members_2024.avif)
+![Neel Gadde, Justin Guoji, Alistair Keiller, Han Lu, Veronica Howard at Aerospace Valley Regional 2024](./Members_2024.avif)
 Picture from left to right: Neel Gadde, Justin Guoji, Alistair Keiller, Han Lu, Veronica Howard at Aerospace Valley Regional 2024. 
