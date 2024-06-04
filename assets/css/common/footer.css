@@ -8,7 +8,6 @@
     transition: visibility 0.25s, opacity 0.4s linear;
 }
 
-.top-link:focus,
-#theme-toggle:focus {
+.top-link:focus {
     outline: 0;
 }

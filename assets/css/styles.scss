@@ -273,15 +273,6 @@ $rose-950: #4c0519;
   }
 }
 
-body.dark #moon {
-  vertical-align: middle;
-  display: none;
-}
-
-body:not(.dark) #sun {
-  display: none;
-}
-
 main a {
   color: $red-500;
 }
@@ -290,4 +281,377 @@ main a:hover {
   color: $red-600;
 }
 
+:root {
+  /* User-settings */
+  --toggle-width: 56px;
+  --toggle-height: 24px;
+  --transition-duration: 500ms;
 
+  /* Calculations for nerds */
+  --sun-size: calc(0.8 * var(--toggle-height));
+  --sun-margin: calc((var(--toggle-height) - var(--sun-size)) / 2);
+  --moon-margin: calc(var(--toggle-width) - var(--sun-margin) - var(--sun-size));
+  --ray-size: calc(0.35 * var(--sun-size));
+  --ray-opacity: 0.1;
+}
+
+.day-night-toggle {
+
+  .toggle {
+    width: var(--toggle-width);
+    height: var(--toggle-height);
+    border-radius: var(--toggle-height);
+    padding: 0;
+    display: block;
+    position: relative;
+    cursor: pointer;
+    transition: all var(--transition-duration) ease-in-out;
+    /**/
+    overflow: hidden;
+    /**/
+
+    /* Apply transition to all childs */
+    & * {
+      transition: all var(--transition-duration) ease-in-out;
+    }
+
+    /* Sky */
+    box-shadow: inset 0 11px 17px -8px rgba(0, 0, 0, 0.66), inset 0px -11px 5px -8px rgba(255, 255, 255, 0.94);
+
+    .sun {
+      position: absolute;
+      width: var(--sun-size);
+      height: var(--sun-size);
+      border-radius: var(--sun-size);
+      top: var(--sun-margin);
+      left: var(--sun-margin);
+      background: #f1c426;
+      box-shadow: inset 8px 11px 17px -8px rgba(255, 255, 255, 0.94), inset -3px -11px 5px -8px rgba(0, 0, 0, 0.66), 5px 5px 15px -2px rgba(0, 0, 0, 0.4);
+      overflow: hidden;
+
+      .moon {
+        position: absolute;
+        width: var(--sun-size);
+        height: var(--sun-size);
+        border-radius: var(--sun-size);
+        top: 0;
+        left: 0;
+        background: #c3c9d4;
+        box-shadow: inset 8px 11px 17px -8px rgba(255, 255, 255, 0.94), inset -3px -11px 5px -8px rgba(0, 0, 0, 0.66), 5px 5px 15px -2px rgba(0, 0, 0, 0.4);
+
+        --crater1: radial-gradient(circle, #979eb3 20%, transparent 21%);
+        --crater2: radial-gradient(circle, #979eb3 10%, transparent 11%);
+        --crater3: radial-gradient(circle, #979eb3 13%, transparent 14%);
+
+        &::before {
+          content: '';
+          position: absolute;
+          width: 200%;
+          height: 200%;
+          background-image: var(--crater1), var(--crater2), var(--crater3);
+          background-size: 50% 50%;
+          background-position: -16% 14%, -3% -20%, 20% 23%;
+          background-repeat: no-repeat;
+        }
+      }
+    }
+
+    .sun-rays {
+      width: var(--sun-size);
+      height: var(--sun-size);
+      position: absolute;
+      top: calc(var(--sun-margin) - var(--ray-size));
+      left: calc(var(--sun-margin) - var(--ray-size));
+      border-radius: 100%;
+      border: var(--ray-size) solid rgba(255, 255, 255, var(--ray-opacity));
+
+      &::before, &::after {
+        content: "";
+        width: var(--sun-size);
+        height: var(--sun-size);
+        position: absolute;
+        top: calc(-2 * var(--ray-size));
+        left: calc(-2 * var(--ray-size));
+        border-radius: 100%;
+        border: calc(2 * var(--ray-size)) solid rgba(255, 255, 255, var(--ray-opacity));
+      }
+
+      &::after {
+        top: calc(-3 * var(--ray-size));
+        left: calc(-3 * var(--ray-size));
+        border: calc(3 * var(--ray-size)) solid rgba(255, 255, 255, var(--ray-opacity));
+      }
+    }
+
+    .clouds-front, .clouds-back {
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      display: block;
+      position: absolute;
+
+      .cloud {
+        --ratio: 0.5;
+        width: calc(var(--ratio) * var(--sun-size));
+        height: calc(var(--ratio) * var(--sun-size));
+        position: absolute;
+        border-radius: 100%;
+        background: rgba(243, 249, 255, 1);
+        left: 50%;
+      }
+
+      .cloud {
+        --ratio: 0.5;
+
+        &:nth-child(1) {
+          top: 90%;
+          left: 10%;
+          --ratio: 0.5;
+        }
+
+        &:nth-child(2) {
+          top: 85%;
+          left: 20%;
+          --ratio: 0.5;
+        }
+
+        &:nth-child(3) {
+          top: 80%;
+          left: 30%;
+          --ratio: 0.7;
+        }
+
+        &:nth-child(4) {
+          top: 87%;
+          left: 48%;
+          --ratio: 0.5;
+        }
+
+        &:nth-child(5) {
+          top: 82%;
+          left: 56%;
+          --ratio: 0.6;
+        }
+
+        &:nth-child(6) {
+          top: 75%;
+          left: 65%;
+          --ratio: 0.9;
+        }
+
+        &:nth-child(7) {
+          top: 57%;
+          left: 80%;
+          --ratio: 0.8;
+        }
+
+        &:nth-child(8) {
+          top: 25%;
+          left: 90%;
+          --ratio: 0.8;
+        }
+      }
+    }
+
+    .clouds-back {
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      display: block;
+      position: absolute;
+
+      opacity: 0.5;
+
+      .cloud {
+        --ratio: 0.5;
+
+        &:nth-child(1) {
+          top: 75%;
+          left: 10%;
+          --ratio: 0.5;
+        }
+
+        &:nth-child(2) {
+          top: 70%;
+          left: 20%;
+          --ratio: 0.5;
+        }
+
+        &:nth-child(3) {
+          top: 62%;
+          left: 30%;
+          --ratio: 0.7;
+        }
+
+        &:nth-child(4) {
+          top: 67%;
+          left: 45%;
+          --ratio: 0.5;
+        }
+
+        &:nth-child(5) {
+          top: 57%;
+          left: 56%;
+          --ratio: 0.6;
+        }
+
+        &:nth-child(6) {
+          top: 50%;
+          left: 65%;
+          --ratio: 0.9;
+        }
+
+        &:nth-child(7) {
+          top: 32%;
+          left: 80%;
+          --ratio: 0.8;
+        }
+
+        &:nth-child(8) {
+          top: 02%;
+          left: 88%;
+          --ratio: 0.8;
+        }
+      }
+    }
+
+    .stars {
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      display: block;
+      position: absolute;
+
+      .star {
+        --ratio: 1;
+        --quadrant: radial-gradient(circle, transparent 69%, white 72%);
+        width: calc(var(--ratio) * var(--sun-size));
+        height: calc(var(--ratio) * var(--sun-size));
+        position: absolute;
+        top: -100%;
+        left: 0;
+        overflow: hidden;
+
+        &::before {
+          content: '';
+          position: absolute;
+          width: 200%;
+          height: 200%;
+          background-image: var(--quadrant), var(--quadrant), var(--quadrant), var(--quadrant);
+          background-size: 50% 50%;
+          background-position: 49% 49%, -49% -49%, -49% 49%, 49% -49%;
+          background-repeat: no-repeat;
+        }
+
+        &:nth-child(1) {
+          top: 25%;
+          left: 10%;
+          --ratio: 0.1;
+        }
+
+        &:nth-child(2) {
+          top: 12%;
+          left: 20%;
+          --ratio: 0.15;
+        }
+
+        &:nth-child(3) {
+          top: 40%;
+          left: 22%;
+          --ratio: 0.09;
+        }
+
+        &:nth-child(4) {
+          top: 70%;
+          left: 10%;
+          --ratio: 0.05;
+        }
+
+        &:nth-child(5) {
+          top: 66%;
+          left: 16%;
+          --ratio: 0.05;
+        }
+
+        &:nth-child(6) {
+          top: 82%;
+          left: 22%;
+          --ratio: 0.07;
+        }
+
+        &:nth-child(7) {
+          top: 24%;
+          left: 50%;
+          --ratio: 0.18;
+        }
+
+        &:nth-child(8) {
+          top: 65%;
+          left: 42%;
+          --ratio: 0.12;
+        }
+
+        &:nth-child(9) {
+          top: 30%;
+          left: 40%;
+          --ratio: 0.07;
+        }
+
+        &:nth-child(10) {
+          top: 47%;
+          left: 37%;
+          --ratio: 0.05;
+        }
+
+        &:nth-child(11) {
+          top: 57%;
+          left: 52%;
+          --ratio: 0.05;
+        }
+      }
+    }
+  }
+
+  /* Day */
+  input:not(:checked) + .toggle {
+    background: #3577ae;
+
+    .moon {
+      left: var(--sun-size);
+    }
+
+    .spots {
+      opacity: 0;
+    }
+
+    .stars {
+      top: calc(-1 * var(--toggle-height));
+    }
+  }
+
+  /* Night */
+  input:checked + .toggle {
+    background: #1b1d28;
+
+    .sun {
+      left: var(--moon-margin);
+    }
+
+    .sun-rays {
+      left: calc(var(--moon-margin) - var(--ray-size));
+    }
+
+    .spots {
+      opacity: 1;
+    }
+
+    .clouds-front, .clouds-back {
+      top: var(--toggle-height);
+    }
+  }
+
+
+}
