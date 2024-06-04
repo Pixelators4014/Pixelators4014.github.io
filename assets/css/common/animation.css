@@ -10,8 +10,12 @@
 
 /* The typewriter cursor effect */
 @keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: red; }
+    from, to {
+        border-color: transparent
+    }
+    50% {
+        border-color: red;
+    }
 }
 
 .typewriter {
@@ -23,5 +27,13 @@ html[data-turbo-visit-direction="forward"]::view-transition-old(sidebar):only-ch
     animation: slide-to-right 0.5s ease-out;
 }
 
+@media (prefers-reduced-motion) {
+    .typewriter {
+        border-right: none;
+        animation: none;
+    }
 
-/* TODO: Prefers reduce motion ... */
+    html[data-turbo-visit-direction="forward"]::view-transition-old(sidebar):only-child {
+        animation: none;
+    }
+}
