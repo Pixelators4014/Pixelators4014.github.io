@@ -46,6 +46,7 @@ home = ["HTML", "RSS", "JSON"]
 [params]
 defaultTheme = "auto"
 theme_color = "#e12f35"
+ShowCodeCopyButtons = true
 #ShowBreadCrumbs = true
 
 [params.assets]

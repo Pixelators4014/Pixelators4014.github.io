@@ -1,10 +1,15 @@
-{{- $main_js :=  resources.Get "js/turbo.js" }}
+{{- $turbo_js :=  resources.Get "js/turbo.js" }}
 {{- if not site.Params.assets.disableFingerprinting }}
-{{ $main_js = $main_js | resources.Fingerprint "sha512" }}
-<script defer crossorigin="anonymous" src="{{ $main_js.RelPermalink }}" integrity="{{ $main_js.Data.Integrity }}"></script>
+{{ $turbo_js = $turbo_js | resources.Fingerprint "sha512" }}
+<script defer crossorigin="anonymous" src="{{ $turbo_js.RelPermalink }}" integrity="{{ $turbo_js.Data.Integrity }}"></script>
 {{- else }}
-<script defer crossorigin="anonymous" src="{{ $main_js.RelPermalink }}"></script>
+<script defer crossorigin="anonymous" src="{{ $turbo_js.RelPermalink }}"></script>
 {{- end }}
 
-<!--TODO: Switch to webpack-->
-<script defer src="https://unpkg.com/tailwindcss-intersect@1.x.x/dist/observer.min.js"></script>
+{{- $intersect_js :=  resources.Get "js/intersect.js" }}
+{{- if not site.Params.assets.disableFingerprinting }}
+{{ $intersect_js = $intersect_js | resources.Fingerprint "sha512" }}
+<script defer crossorigin="anonymous" src="{{ $intersect_js.RelPermalink }}" integrity="{{ $intersect_js.Data.Integrity }}"></script>
+{{- else }}
+<script defer crossorigin="anonymous" src="{{ $intersect_js.RelPermalink }}"></script>
+{{- end }}

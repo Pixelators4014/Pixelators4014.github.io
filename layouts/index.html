@@ -1,4 +1,4 @@
-{{ define "main" }}
+{{ define "body" }}
 {{ $hero_img := resources.Get "images/homepage/landing.jpg" }}
 {{ $hero_img := $hero_img.Process "webp" }}
 {{ $hero_img := $hero_img.Resize "1500x" }}
@@ -22,7 +22,7 @@
         <p class="mb-8 text-lg font-normal text-slate-800 lg:text-xl sm:px-16 xl:px-48 dark:text-slate-400">Stanford OHS's FRC Robotics Team</p>
         <div class="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
             <a href="/about"
-               class="inline-flex justify-center items-center py-3 px-5 font-medium text-center text-slate-900 dark:text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900 hover:scale-110 duration-300">
+               class="inline-flex justify-center items-center py-3 px-5 font-medium text-center text-slate-900 dark:text-white rounded-lg bg-primary-700 hover:bg-primary-800 hover:scale-110 duration-300">
                 About
                 <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                      xmlns="http://www.w3.org/2000/svg">
@@ -40,17 +40,17 @@
             <span class="font-semibold text-gray-400 uppercase">SPONSORED BY</span>
             {{ $convert := images.Process "webp" }}
             <div class="flex flex-wrap justify-center items-center mt-8 text-gray-500 sm:justify-between">
-                <a href="https://nasa.gov" class="mr-5 mb-5 lg:mb-0 hover:text-gray-800 dark:hover:text-gray-400">
+                <a href="https://nasa.gov" class="mr-5 mb-5 lg:mb-0 hover:text-gray-800 dark:hover:text-gray-400 hover:scale-105 duration-300">
                     {{ $nasa_logo := resources.Get "images/sponsor/nasa_text.png" | images.Filter $convert }}
                     {{ $nasa_logo := $nasa_logo.Resize "325x" }}
                     <img src="{{ $nasa_logo.RelPermalink }}" alt="NASA logo" class="h-16"/>
                 </a>
-                <a href="https://www.northropgrumman.com/" class="mr-5 mb-5 lg:mb-0 hover:text-gray-800 dark:hover:text-gray-400">
+                <a href="https://www.northropgrumman.com/" class="mr-5 mb-5 lg:mb-0 hover:text-gray-800 dark:hover:text-gray-400 hover:scale-105 duration-300">
                     {{ $ng := resources.Get "images/sponsor/northrop_grumman.png" | images.Filter $convert}}
                     {{ $ng := $ng.Resize "325x" }}
                     <img src="{{ $ng.RelPermalink }}" alt="Northrop Grumman logo" class="h-16"/>
                 </a>
-                <a href="https://www.baesystems.com/en/home" class="mr-5 mb-5 lg:mb-0 hover:text-gray-800 dark:hover:text-gray-400">
+                <a href="https://www.baesystems.com/en/home" class="mr-5 mb-5 lg:mb-0 hover:text-gray-800 dark:hover:text-gray-400 hover:scale-105 duration-300">
                     {{ $bae := resources.Get "images/sponsor/bae.png" | images.Filter $convert}}
                     {{ $bae := $bae.Resize "325x" }}
                     <img src="{{ $bae.RelPermalink }}" alt="BAE Systems logo" class="h-12"/>
@@ -59,8 +59,8 @@
         </div>
     </div>
 </section>
-
-<div class="main" style="margin-top: 100px">
+{{ end }}
+{{ define "main" }}
     <article class="post-single invisible intersect:visible intersect:animate-jump-in intersect:animate-duration-1000 intersect:animate-delay-[100ms] intersect:animate-ease-in-out">
         <div class="post-content">
             {{ .Content }}
@@ -132,18 +132,20 @@
 </div>
 
 <script>
-    document.getElementById("main").classList.remove("main");
-    const typewriter = document.getElementById("titleHeading");
-    const fullText = typewriter.textContent;
-    typewriter.textContent = " ";
-    let i = 0;
-    const interval = setInterval(() => {
-        if (i < fullText.length) {
-            typewriter.textContent += fullText.charAt(i);
-            i++;
-        } else {
-            clearInterval(interval);
-        }
-    }, 100);
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!prefersReducedMotion) {
+        const typewriter = document.getElementById("titleHeading");
+        const fullText = typewriter.textContent;
+        typewriter.textContent = " ";
+        let i = 0;
+        const interval = setInterval(() => {
+            if (i < fullText.length) {
+                typewriter.textContent += fullText.charAt(i);
+                i++;
+            } else {
+                clearInterval(interval);
+            }
+        }, 100);
+    }
 </script>
 {{ end }}
