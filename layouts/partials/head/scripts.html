@@ -1,0 +1,10 @@
+{{- $main_js :=  resources.Get "js/turbo.js" }}
+{{- if not site.Params.assets.disableFingerprinting }}
+{{ $main_js = $main_js | resources.Fingerprint "sha512" }}
+<script defer crossorigin="anonymous" src="{{ $main_js.RelPermalink }}" integrity="{{ $main_js.Data.Integrity }}"></script>
+{{- else }}
+<script defer crossorigin="anonymous" src="{{ $main_js.RelPermalink }}"></script>
+{{- end }}
+
+<!--TODO: Switch to webpack-->
+<script defer src="https://unpkg.com/tailwindcss-intersect@1.x.x/dist/observer.min.js"></script>
