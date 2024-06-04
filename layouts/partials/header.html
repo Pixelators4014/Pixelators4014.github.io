@@ -54,49 +54,51 @@
             {{- end }}
             <div class="logo-switches pl-2" style="margin-right: auto;padding-top: 6px;">
                 {{- if (not site.Params.disableThemeToggle) }}
-                <label class="day-night-toggle">
-                  <input type="checkbox" class="hidden" id="theme-toggle">
-                  <span class="toggle">
-                    <span class="clouds-back">
-                      <span class="cloud"></span>
-                      <span class="cloud"></span>
-                      <span class="cloud"></span>
-                      <span class="cloud"></span>
-                      <span class="cloud"></span>
-                      <span class="cloud"></span>
-                      <span class="cloud"></span>
-                      <span class="cloud"></span>
-                    </span>
-                    <span class="stars">
-                      <span class="star"></span>
-                      <span class="star"></span>
-                      <span class="star"></span>
-                      <span class="star"></span>
-                      <span class="star"></span>
-                      <span class="star"></span>
-                      <span class="star"></span>
-                      <span class="star"></span>
-                      <span class="star"></span>
-                      <span class="star"></span>
-                      <span class="star"></span>
-                      <span class="star"></span>
-                    </span>
-                    <span class="sun-rays"></span>
-                    <span class="sun">
-                      <span class="moon"></span>
-                    </span>
-                    <span class="clouds-front">
-                      <span class="cloud"></span>
-                      <span class="cloud"></span>
-                      <span class="cloud"></span>
-                      <span class="cloud"></span>
-                      <span class="cloud"></span>
-                      <span class="cloud"></span>
-                      <span class="cloud"></span>
-                      <span class="cloud"></span>
-                    </span>
-                  </span>
-                </label>
+                <div>
+                    <label class="day-night-toggle">
+                      <input type="checkbox" class="hidden" id="theme-toggle" hidden>
+                      <span class="toggle">
+                        <span class="clouds-back">
+                          <span class="cloud"></span>
+                          <span class="cloud"></span>
+                          <span class="cloud"></span>
+                          <span class="cloud"></span>
+                          <span class="cloud"></span>
+                          <span class="cloud"></span>
+                          <span class="cloud"></span>
+                          <span class="cloud"></span>
+                        </span>
+                        <span class="stars">
+                          <span class="star"></span>
+                          <span class="star"></span>
+                          <span class="star"></span>
+                          <span class="star"></span>
+                          <span class="star"></span>
+                          <span class="star"></span>
+                          <span class="star"></span>
+                          <span class="star"></span>
+                          <span class="star"></span>
+                          <span class="star"></span>
+                          <span class="star"></span>
+                          <span class="star"></span>
+                        </span>
+                        <span class="sun-rays"></span>
+                        <span class="sun">
+                          <span class="moon"></span>
+                        </span>
+                        <span class="clouds-front">
+                          <span class="cloud"></span>
+                          <span class="cloud"></span>
+                          <span class="cloud"></span>
+                          <span class="cloud"></span>
+                          <span class="cloud"></span>
+                          <span class="cloud"></span>
+                          <span class="cloud"></span>
+                          <span class="cloud"></span>
+                        </span>
+                      </span>
+                    </label>
+                </div>
                 {{- end }}
 
                 {{- $lang := .Lang}}
