@@ -1,4 +1,4 @@
-{{ define "main" }}
+{{ define "body" }}
 {{ $hero_img := resources.Get "images/homepage/landing.jpg" }}
 {{ $hero_img := $hero_img.Process "webp" }}
 {{ $hero_img := $hero_img.Resize "1500x" }}
@@ -59,8 +59,8 @@
         </div>
     </div>
 </section>
-
-<div class="main" style="margin-top: 100px">
+{{ end }}
+{{ define "main" }}
     <article class="post-single invisible intersect:visible intersect:animate-jump-in intersect:animate-duration-1000 intersect:animate-delay-[100ms] intersect:animate-ease-in-out">
         <div class="post-content">
             {{ .Content }}
@@ -132,7 +132,6 @@
 </div>
 
 <script>
-    document.getElementById("main").classList.remove("main");
     const typewriter = document.getElementById("titleHeading");
     const fullText = typewriter.textContent;
     typewriter.textContent = " ";
