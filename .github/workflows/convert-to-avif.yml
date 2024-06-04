@@ -35,3 +35,12 @@ jobs:
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
+        with:
+          branch: "convert-to-avif"
+          title: "Convert Images to AVIF"
+          body: |
+            This is an automated pull request that converts all the images to avifs along side the image, nothing should have been deleted, but new images should have been created. 
+          commit-message: |
+            chore: convert images to AVIF
+  
+            This is an automated commit created by github actions.
