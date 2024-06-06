@@ -316,7 +316,7 @@ main a:hover {
     }
 
     /* Sky */
-    box-shadow: inset 0 11px 17px -8px rgba(0, 0, 0, 0.66), inset 0px -11px 5px -8px rgba(255, 255, 255, 0.94);
+    box-shadow: inset 0px 11px 17px -8px rgba(0, 0, 0, 0.66), inset 0px -11px 5px -8px rgba(255, 255, 255, 0.94);
 
     .sun {
       position: absolute;
@@ -325,8 +325,9 @@ main a:hover {
       border-radius: var(--sun-size);
       top: var(--sun-margin);
       left: var(--sun-margin);
+      // TODO: Add sun gradient
       background: #f1c426;
-      box-shadow: inset 8px 11px 17px -8px rgba(255, 255, 255, 0.94), inset -3px -11px 5px -8px rgba(0, 0, 0, 0.66), 5px 5px 15px -2px rgba(0, 0, 0, 0.4);
+      //box-shadow: inset 8px 11px 17px -8px rgba(255, 255, 255, 0.94), inset -3px -11px 5px -8px rgba(0, 0, 0, 0.66), 5px 5px 15px -2px rgba(0, 0, 0, 0.4);
       overflow: hidden;
 
       .moon {
@@ -353,33 +354,6 @@ main a:hover {
           background-position: -16% 14%, -3% -20%, 20% 23%;
           background-repeat: no-repeat;
         }
-      }
-    }
-
-    .sun-rays {
-      width: var(--sun-size);
-      height: var(--sun-size);
-      position: absolute;
-      top: calc(var(--sun-margin) - var(--ray-size));
-      left: calc(var(--sun-margin) - var(--ray-size));
-      border-radius: 100%;
-      border: var(--ray-size) solid rgba(255, 255, 255, var(--ray-opacity));
-
-      &::before, &::after {
-        content: "";
-        width: var(--sun-size);
-        height: var(--sun-size);
-        position: absolute;
-        top: calc(-2 * var(--ray-size));
-        left: calc(-2 * var(--ray-size));
-        border-radius: 100%;
-        border: calc(2 * var(--ray-size)) solid rgba(255, 255, 255, var(--ray-opacity));
-      }
-
-      &::after {
-        top: calc(-3 * var(--ray-size));
-        left: calc(-3 * var(--ray-size));
-        border: calc(3 * var(--ray-size)) solid rgba(255, 255, 255, var(--ray-opacity));
       }
     }
 
