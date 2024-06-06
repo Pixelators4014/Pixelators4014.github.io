@@ -41,7 +41,7 @@
 
 <header class="header">
     <nav>
-        <div id="nav-div" class="w-full fixed z-20 top-0 start-0 border-gray-400 dark:border-gray-700 backdrop-blur-3xl backdrop-brightness-200 dark:backdrop-brightness-75 bg-white dark:bg-slate-900">
+        <div id="nav-div" class="w-full fixed z-20 top-0 start-0 border-gray-400 dark:border-gray-700 backdrop-blur-3xl backdrop-brightness-200 dark:backdrop-brightness-75 bg-white dark:bg-slate-900 transition-colors duration-1000 ease-in-out">
             <div class="max-w-screen-xl items-center justify-between flex flex-wrap mx-auto p-4">
             {{- $label_text := (site.Params.label.text | default site.Title) }}
             {{- if site.Title }}
