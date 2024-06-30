@@ -58,9 +58,16 @@ icon = "images/logo.png"
 alt = "Pixelators Logo"
 iconHeight = 20
 
-[[params.socialIcons]]
-name = "github"
-url = "https://github.com/Pixelators4014/"
+[params.homepage]
+
+[params.homepage.alert]
+enable = true
+text = "Check out our latest blog post"
+link = "/blog/2024_5_25_orin_coprocessor/"
+
+#[[params.socialIcons]]
+#name = "github"
+#url = "https://github.com/Pixelators4014/"
 
 [module]
 [[module.imports]]

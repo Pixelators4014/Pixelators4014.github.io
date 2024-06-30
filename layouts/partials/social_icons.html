@@ -1,8 +1,9 @@
-<div class="social-icons" {{ with .align}}align="{{.}}" {{- end }}>
+<div class="flex mt-4 sm:justify-center sm:mt-0">
     {{- range site.Params.socialIcons }}
-    <a href="{{ trim .url " " | safeURL }}" target="_blank" rel="noopener noreferrer me"
-        title="{{ (.title | default .name) | title }}">
+    <a href="{{ .url | safeURL }}" target="_blank" rel="noopener noreferrer me"
+       title="{{ (.title | default .name) | title }}" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
         {{ partial "svg.html" . }}
+        <span class="sr-only">{{ (.title | default .name) | title }}</span>
     </a>
     {{- end }}
 </div>

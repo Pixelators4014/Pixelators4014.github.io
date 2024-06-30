@@ -5,17 +5,19 @@
 <section style="background-image: url('{{ $hero_img.RelPermalink }}');"
          class="relative flex items-center justify-center h-screen bg-cover bg-center bg-no-repeat">
     <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12 rounded-lg backdrop-blur-3xl backdrop-brightness-200 dark:backdrop-blur dark:backdrop-brightness-50 animate-fade-right animate-duration-[1500ms] animate-ease-out">
-        <a href="/blog/2024_5_25_orin_coprocessor/"
+        {{- if site.Params.homepage.alert.enabled }}
+        <a href="{{ site.Params.homepage.alert.link }}"
            class="inline-flex justify-between items-center py-1 px-4 mb-7 text-sm text-gray-700 bg-gray-100 rounded-full dark:bg-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 hover:scale-110 duration-300"
-           role="note" aria-label="Check out our latest blog post">
+           role="note" aria-label="{{ site.Params.homepage.alert.text }}">
             <span
-                    class="text-sm font-medium">Check out our latest blog post</span>
+                    class="text-sm font-medium">{{ site.Params.homepage.alert.text }}</span>
             <svg class="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd"
                       d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
                       clip-rule="evenodd"></path>
             </svg>
         </a>
+        {{- end }}
         <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-black dark:text-white md:text-5xl lg:text-6xl font-homepageTitle">
             <span id="titleHeading" class="typewriter">Pixelators</span>
         </h1>
