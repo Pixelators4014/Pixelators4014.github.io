@@ -1,10 +1,20 @@
-import * as params from '@params';
+const params = {
+    fuseOpts: {}
+};
 
 let fuse; // holds our search engine
 let resList = document.getElementById('searchResults');
 let sInput = document.getElementById('searchInput');
-let first, last, current_elem = null
 let resultsAvailable = false;
+
+function makeResult(item) {
+    return `<a class="block w-full px-4 py-2 border-b cursor-pointer text-black dark:text-white hover:text-black hover:dark:text-white hover:bg-slate-600" href="${item.item.permalink}" aria-label="${item.item.title}">
+                <div>
+                    <h3 class="text-lg font-semibold">${item.item.title}</h3>
+                </div>
+                <div class="text-sm font-normal"><p class="hover:text-black dark:hover:text-white">${item.item.summary}</p></div>
+            </a>`;
+}
 
 // load our search index
 window.onload = function () {
@@ -52,20 +62,6 @@ window.onload = function () {
     xhr.send();
 }
 
-function activeToggle(ae) {
-    document.querySelectorAll('.focus').forEach(function (element) {
-        // rm focus class
-        element.classList.remove("focus")
-    });
-    if (ae) {
-        ae.focus()
-        document.activeElement = current_elem = ae;
-        ae.parentElement.classList.add("focus")
-    } else {
-        document.activeElement.parentElement.classList.add("focus")
-    }
-}
-
 function reset() {
     resultsAvailable = false;
     resList.innerHTML = sInput.value = ''; // clear inputbox and searchResults
@@ -88,65 +84,16 @@ sInput.onkeyup = function (e) {
             let resultSet = ''; // our results bucket
 
             for (let item in results) {
-                resultSet += `<li class="block w-full px-4 py-2 border-b border-gray-200 cursor-pointer hover:bg-gray-100 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white"><header class="entry-header">${results[item].item.title}&nbsp;»</header>` +
-                    `<a href="${results[item].item.permalink}" aria-label="${results[item].item.title}"></a></li>`
+                resultSet += makeResult(results[item]);
             }
 
             resList.innerHTML = resultSet;
             resultsAvailable = true;
-            first = resList.firstChild;
-            last = resList.lastChild;
+            resList.hidden = false;
         } else {
             resultsAvailable = false;
+            resList.hidden = true;
             resList.innerHTML = '';
         }
-    }
-}
-
-sInput.addEventListener('search', function (e) {
-    // clicked on x
-    if (!this.value) reset()
-})
-
-// kb bindings
-document.onkeydown = function (e) {
-    let key = e.key;
-    let ae = document.activeElement;
-
-    let inbox = document.getElementById("searchbox").contains(ae)
-
-    if (ae === sInput) {
-        let elements = document.getElementsByClassName('focus');
-        while (elements.length > 0) {
-            elements[0].classList.remove('focus');
-        }
-    } else if (current_elem) ae = current_elem;
-
-    if (key === "Escape") {
-        reset()
-    } else if (!resultsAvailable || !inbox) {
-        return
-    } else if (key === "ArrowDown") {
-        e.preventDefault();
-        if (ae == sInput) {
-            // if the currently focused element is the search input, focus the <a> of first <li>
-            activeToggle(resList.firstChild.lastChild);
-        } else if (ae.parentElement != last) {
-            // if the currently focused element's parent is last, do nothing
-            // otherwise select the next search result
-            activeToggle(ae.parentElement.nextSibling.lastChild);
-        }
-    } else if (key === "ArrowUp") {
-        e.preventDefault();
-        if (ae.parentElement == first) {
-            // if the currently focused element is first item, go to input box
-            activeToggle(sInput);
-        } else if (ae != sInput) {
-            // if the currently focused element is input box, do nothing
-            // otherwise select the previous search result
-            activeToggle(ae.parentElement.previousSibling.lastChild);
-        }
-    } else if (key === "ArrowRight") {
-        ae.click(); // click on active link
     }
 }
