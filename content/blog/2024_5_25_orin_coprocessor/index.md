@@ -95,7 +95,7 @@ We used the Intel RealSense camera for all three tasks.
 
 ### VSLAM
 
-![gif of VSLAM running](https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/main/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_visual_slam/cuvslam_ros_3.gif/)
+![gif of VSLAM running](./vslam.gif)
 
 VSLAM is a method used by robots and drones to navigate and map their surroundings.
 It uses a camera to detect features in the environment and uses those features to determine the robot's position.
@@ -110,7 +110,7 @@ as we had a RealSense camera with an internal [IMU](https://en.wikipedia.org/wik
 
 ### April Tags
 
-![gif of April Tags running](https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/main/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_apriltag/isaac_ros_apriltag_sample_crop.gif/)
+![gif of April Tags running](./apriltags.gif)
 
 Unfortunately, VSLAM is not perfect; at times, it can lose tracking of its surroundings.
 This leads to a massive drift in the robot's position, which cannot be correct.
