@@ -1,4 +1,4 @@
 +++
-title = 'Adam Chestovaliev'
+title = 'Alessandro Bonnechi'
 position = 'Electrical'
 +++
