@@ -21,5 +21,5 @@ Theme based on PaperMod.
 ### Creating a new post
 
 ```shell
-hugo new content content/blog/yyyy_mm_dd/my-first-post.md
+hugo new content content/blog/yyyy_mm_dd/index.md
 ```
