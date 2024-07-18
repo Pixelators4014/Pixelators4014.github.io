@@ -269,4 +269,5 @@ It, however, probably would be a great off-season project that could be used in 
 
 Happy Hacking and Good Luck!
 
-EDIT: Fixed FMV limit typo
+EDIT 1 (5/28/2024): Fixed FMV limit typo
+EDIT 2 (7/18/2024): Our ros2 logger has moved to [https://github.com/Pixelators4014/ros2_logger](https://github.com/Pixelators4014/ros2_logger)
