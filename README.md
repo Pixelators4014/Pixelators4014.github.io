@@ -1,6 +1,6 @@
 # 4014-website
 
-[![Main Site](https://github.com/Pixelators4014/Pixelators4014.github.io/actions/workflows/hugo.yml/badge.svg)](https://www.pixelators.org)
+[![Main Site](https://github.com/Pixelators4014/Pixelators4014.github.io/actions/workflows/hugo.yml/badge.svg)](https://pixelators.org)
 
 Alt: https://pixelators4014-github-io.pages.dev/
 
