@@ -1,5 +1,6 @@
 +++
 title = 'About Us'
+layout = 'about'
 +++
 
 ## Mission Statement
@@ -22,5 +23,4 @@ including NASA, Northrop-Grumman, Qualcomm and Viasat.
 
 What sets our team apart is its diverse membership, spanning three continents.
 While based in Southern California and Orange County, team members come from various states across the US, such as Texas, Florida, Michigan, and New York as well as internationally from Thailand and Serbia.
-Our team includes members of all ages (Co27-24) and backgrounds, incorporating a diverse environment of talented youth. 
-
+Our team includes members of all ages (Co27-24) and backgrounds, incorporating a diverse environment of talented youth.

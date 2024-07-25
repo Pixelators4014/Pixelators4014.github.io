@@ -1,5 +1,6 @@
 const params = {
-    fuseOpts: {}
+    fuseOpts: {},
+    cx: 'f388e696a33d54890'
 };
 
 import Fuse from 'fuse.js';
@@ -7,18 +8,7 @@ import Fuse from 'fuse.js';
 let fuse;
 let resList = document.getElementById('searchResults');
 let sInput = document.getElementById('searchInput');
-
-
-let resultsAvailable = false;
-
-function makeResult(item) {
-    return `<a class="block w-full px-4 py-2 border-b cursor-pointer text-black dark:text-white hover:text-black hover:dark:text-white hover:bg-slate-600" href="${item.item.permalink}" aria-label="${item.item.title}">
-                <div>
-                    <h3 class="text-lg font-semibold">${item.item.title}</h3>
-                </div>
-                <div class="text-sm font-normal"><p class="hover:text-black dark:hover:text-white">${item.item.summary}</p></div>
-            </a>`;
-}
+let sButton = document.getElementById('searchButton');
 
 // load our search index
 window.onload = function () {
@@ -67,44 +57,57 @@ window.onload = function () {
     xhr.send();
 }
 
-function reset() {
-    resultsAvailable = false;
-    resList.innerHTML = sInput.value = ''; // clear inputbox and searchResults
-    sInput.focus(); // shift focus to input box
-}
+// TODO: search suggestions
 
-function search() {
-    if (fuse) {
-        // Run a search query (for "term") every time a letter is typed
-        // in the search box
-        let results;
-        if (params.fuseOpts) {
-            results = fuse.search(sInput.value.trim(), {limit: params.fuseOpts.limit}); // the actual query being run using fuse.js along with options
-        } else {
-            results = fuse.search(sInput.value.trim()); // the actual query being run using fuse.js
-        }
-        if (results.length !== 0) {
-            // build our html if result exists
-            let resultSet = ''; // our results bucket
-
-            for (let item in results) {
-                resultSet += makeResult(results[item]);
+export function search() {
+    console.log('Searching...');
+    resList.hidden = false;
+    resList.innerHTML = `<div role="status">
+            <span class="sr-only">Searching ...</span>
+        </div>`;
+    if (sInput.value !== '') {
+        let query = "https://customsearch.googleapis.com/customsearch/v1?";
+        query += "cx=" + params.cx;
+        query += "&q=" + sInput.value;
+        query += "&key=AIzaSyC6y55s4OqQkyT4tp_ePjKShK7s3hRWGKc";
+        let xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function (event) {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    let data = JSON.parse(xhr.responseText);
+                    resList.innerHTML = '';
+                    let res;
+                    for (res of data.items) {
+                        console.log(res);
+                        let resItem = document.createElement('a');
+                        resItem.classList.add('block', 'w-full', 'px-4', 'py-2', 'border-b', 'cursor-pointer', 'text-black', 'dark:text-white', 'hover:text-black', 'hover:dark:text-white', 'hover:bg-slate-600');
+                        resItem.href = res.link;
+                        resItem.ariaLabel = res.title;
+                        let resTitle = document.createElement('div');
+                        resTitle.innerHTML = `<h3 class="text-lg font-semibold">${res.htmlTitle}</h3>`;
+                        let resSummary = document.createElement('div');
+                        resSummary.classList.add('text-sm', 'font-normal');
+                        resSummary.innerHTML = `<p class="hover:text-black dark:hover:text-white">${res.htmlSnippet}</p>`;
+                        resItem.appendChild(resTitle);
+                        resItem.appendChild(resSummary);
+                        resList.appendChild(resItem);
+                    }
+                }
             }
-
-            resList.innerHTML = resultSet;
-            resultsAvailable = true;
-            resList.hidden = false;
-        } else {
-            resultsAvailable = false;
-            resList.hidden = true;
-            resList.innerHTML = '';
         }
-    } else {
-        console.warn('Fuse not initialized');
+        xhr.open('GET', query);
+        xhr.send();
     }
 }
 
-// execute search as each character is typed
-sInput.onkeyup = function (_e) {
-    search();
+// execute search on enter key
+sInput.onkeydown = function (e) {
+    if (e.key === 'Enter') {
+        search();
+    }
 }
+
+// execute search when the search button is clicked
+sButton.onclick = function () {
+    search();
+};
