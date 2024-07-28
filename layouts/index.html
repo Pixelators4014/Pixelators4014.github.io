@@ -1,3 +1,29 @@
+{{ define "head" }}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      // "image": "https://www.example.com/example_image.jpg",
+      "url": "https://pixelators.org",
+      // "sameAs": ["https://example.net/profile/example1234", "https://example.org/example1234"],
+      // "logo": "https://www.example.com/images/logo.png",
+      "name": "The Pixelators",
+      "description": "Stanford OHS's FRC Robotics Team",
+      "email": "webmaster@pixelators.org",
+      "taxID": "84-2622283",
+      // "telephone": "+47-99-999-9999",
+      // "address": {
+      //   "@type": "PostalAddress",
+      //   "streetAddress": "Rue Improbable 99",
+      //   "addressLocality": "Paris",
+      //   "addressCountry": "FR",
+      //   "addressRegion": "Ile-de-France",
+      //   "postalCode": "75001"
+      // },
+      // "iso6523Code": "0199:724500PMK2A2M1SQQ228"
+    }
+    </script>
+{{ end }}
 {{ define "body" }}
 {{ $hero_img := resources.Get "images/homepage/landing.jpg" }}
 {{ $hero_img := $hero_img.Process "webp" }}
