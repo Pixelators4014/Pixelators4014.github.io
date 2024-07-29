@@ -1,6 +1,7 @@
 baseURL = '/'
 languageCode = 'en-us'
-title = 'The Pixelators'
+title = 'Pixelators'
+longTitle = 'The Pixelators'
 description = 'The official website of the Pixelators, a FIRST Robotics Competition team.'
 enableRobotsTXT = true
 
