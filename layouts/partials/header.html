@@ -54,7 +54,8 @@
                 <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">{{- $label_text -}}</span>
             </a>
             {{- end }}
-            <div class="logo-switches pl-2" style="margin-right: auto;padding-top: 6px;">
+            {{- template "partials/social_icons.html" . }}
+            <div class="logo-switches pl-2 mr-auto" style="padding-top: 6px;">
                 {{- if (not site.Params.disableThemeToggle) }}
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
