@@ -1,6 +1,8 @@
 baseURL = '/'
 languageCode = 'en-us'
 title = 'Pixelators'
+longTitle = 'The Pixelators'
+description = 'The official website of the Pixelators, a FIRST Robotics Competition team.'
 enableRobotsTXT = true
 
 [menus]
@@ -24,15 +26,20 @@ name = 'Members'
 pageRef = '/members'
 weight = 4
 
+[[menus.projects]]
+name = 'Projects'
+pageRef = '/projects'
+weight = 5
+
 [[menus.main]]
 name = 'Blog'
 pageRef = '/blog'
-weight = 5
+weight = 6
 
 [[menus.main]]
 name = 'Sponsors'
 pageRef = '/sponsors'
-weight = 6
+weight = 7
 
 [[menus.main]]
 name = 'Search'

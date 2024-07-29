@@ -4,7 +4,6 @@
 
 <!DOCTYPE html>
 <html lang="{{ site.Language }}" dir="{{ .Language.LanguageDirection | default "auto" }}">
-
 <head>
     {{- partial "head.html" . }}
     {{ block "head" . }}
@@ -33,5 +32,4 @@
     </main>
     {{ partialCached "footer.html" . .Layout .Kind (.Param "hideFooter") (.Param "ShowCodeCopyButtons") -}}
 </body>
-
 </html>

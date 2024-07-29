@@ -29,8 +29,6 @@ Be sure to mention Team 4014.
 
 ### Diamond Sponsors ($2500+)
 
-![Stanford Online High school](./ohs.png)
-
 ### Platinum Sponsors ($1000+)
 
 ### Gold Sponsors ($500+)
@@ -48,3 +46,8 @@ Be sure to mention Team 4014.
 - Boeing
 - Haas Automation
 - BAE Systems
+
+
+## Further Info
+
+Our EIN is 84-2622283.

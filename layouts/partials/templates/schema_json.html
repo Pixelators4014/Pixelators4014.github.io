@@ -6,14 +6,17 @@
   "name": {{ site.Title }},
   "url": {{ site.Home.Permalink }},
   "description": {{ site.Params.description | plainify | truncate 180 | safeHTML }},
-  "thumbnailUrl": {{ site.Params.assets.favicon | default "favicon.ico" | absURL }},
+  "logo": {{ site.Params.assets.favicon | default "favicon.ico" | absURL }},
   "sameAs": [
+    "https://frc-events.firstinspires.org/team/4014",
     {{- if site.Params.schema.sameAs }}
       {{ range $i, $e := site.Params.schema.sameAs }}{{ if $i }}, {{ end }}{{ trim $e " " }}{{ end }}
     {{- else}}
       {{ range $i, $e := site.Params.SocialIcons }}{{ if $i }}, {{ end }}{{ trim $e.url " " | safeURL }}{{ end }}
     {{- end}}
-  ]
+  ],
+  "taxID": "84-2622283",
+  "email": "webmaster@pixelators.org",
 }
 </script>
 {{- else if (or .IsPage .IsSection) }}
@@ -55,7 +58,7 @@
   ]
 }
 </script>
-{{- if .IsPage }}
+{{- if and .IsPage .Params.blog }}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -119,6 +122,6 @@
   }
 }
 </script>
-{{- end }}{{/* .IsPage end */}}
+{{- end }}
 
 {{- end -}}

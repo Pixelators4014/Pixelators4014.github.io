@@ -5,6 +5,7 @@ author = 'Ashwin Naren'
 tags = ['software', 'coprocessor', 'rust', 'ros2']
 summary = 'Our software team used an NVIDIA Orin Nano Developer Kit as a coprocessor with ROS 2 with an Intel RealSense Camera, and got it working.'
 ShowReadingTime = true
+blog = true
 +++
 
 This season, our software team used
@@ -95,7 +96,7 @@ We used the Intel RealSense camera for all three tasks.
 
 ### VSLAM
 
-![gif of VSLAM running](https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/main/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_visual_slam/cuvslam_ros_3.gif/)
+![gif of VSLAM running](./vslam.gif)
 
 VSLAM is a method used by robots and drones to navigate and map their surroundings.
 It uses a camera to detect features in the environment and uses those features to determine the robot's position.
@@ -110,7 +111,7 @@ as we had a RealSense camera with an internal [IMU](https://en.wikipedia.org/wik
 
 ### April Tags
 
-![gif of April Tags running](https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/main/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_apriltag/isaac_ros_apriltag_sample_crop.gif/)
+![gif of April Tags running](./apriltags.gif)
 
 Unfortunately, VSLAM is not perfect; at times, it can lose tracking of its surroundings.
 This leads to a massive drift in the robot's position, which cannot be correct.
@@ -269,4 +270,5 @@ It, however, probably would be a great off-season project that could be used in 
 
 Happy Hacking and Good Luck!
 
-EDIT: Fixed FMV limit typo
+EDIT 1 (5/28/2024): Fixed FMV limit typo
+EDIT 2 (7/18/2024): Our ros2 logger has moved to [https://github.com/Pixelators4014/ros2_logger](https://github.com/Pixelators4014/ros2_logger)

@@ -5,5 +5,6 @@ author = 'Ashwin Naren'
 tags = ['software']
 summary = 'TODO.'
 ShowReadingTime = true
+blog = true
 draft = true
 +++

@@ -17,7 +17,7 @@
             </svg>
         </a>
         <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-black dark:text-white md:text-5xl lg:text-6xl font-homepageTitle">
-            <span id="titleHeading" class="typewriter">Pixelators</span>
+            <span id="titleHeading" class="typewriter">{{ site.Title }}</span>
         </h1>
         <p class="mb-8 text-lg font-normal text-slate-800 lg:text-xl sm:px-16 xl:px-48 dark:text-slate-400">Stanford OHS's FRC Robotics Team</p>
         <div class="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
@@ -31,13 +31,13 @@
                           clip-rule="evenodd"></path>
                 </svg>
             </a>
-            <a href="#"
+            <a href="https://forms.gle/ggcihqcuecgqUpCW6"
                class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-gray-200 hover:text-white rounded-lg bg-gradient-to-br from-red-500 to-red-800 hover:from-red-450 hover:to-red-700  hover:scale-110 duration-300">
                 Join Us
             </a>
         </div>
         <div class="px-4 mx-auto text-center md:max-w-screen-md lg:max-w-screen-lg lg:px-36">
-            <span class="font-semibold text-gray-400 uppercase">SPONSORED BY</span>
+            <span class="font-semibold text-black dark:text-gray-400 uppercase">Sponsored By</span>
             {{ $convert := images.Process "webp" }}
             <div class="flex flex-wrap justify-center items-center mt-8 text-gray-500 sm:justify-between">
                 <a href="https://nasa.gov" class="mr-5 mb-5 lg:mb-0 hover:text-gray-800 dark:hover:text-gray-400 hover:scale-105 duration-300">
@@ -129,23 +129,26 @@
         <img alt="Pixelators at work" class="{{ $img_classes }}"
              src="{{ $image8.RelPermalink }}"/>
     </div>
-</div>
 
-<script>
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!prefersReducedMotion) {
-        const typewriter = document.getElementById("titleHeading");
-        const fullText = typewriter.textContent;
-        typewriter.textContent = " ";
-        let i = 0;
-        const interval = setInterval(() => {
-            if (i < fullText.length) {
-                typewriter.textContent += fullText.charAt(i);
-                i++;
-            } else {
-                clearInterval(interval);
-            }
-        }, 100);
-    }
-</script>
+    <script>
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        let completed = sessionStorage.getItem("index_typewriter") === "true";
+        if (!prefersReducedMotion && !completed) {
+            const typewriter = document.getElementById("titleHeading");
+            const fullText = typewriter.textContent;
+            typewriter.textContent = " ";
+            setTimeout(() => {
+                let i = 0;
+                const interval = setInterval(() => {
+                    if (i < fullText.length) {
+                        typewriter.textContent += fullText.charAt(i);
+                        i++;
+                    } else {
+                        sessionStorage.setItem("index_typewriter", "true");
+                        clearInterval(interval);
+                    }
+                }, 150);
+            }, 1750)
+        }
+    </script>
 {{ end }}
