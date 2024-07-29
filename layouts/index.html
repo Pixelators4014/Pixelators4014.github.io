@@ -1,29 +1,3 @@
-{{ define "head" }}
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      // "image": "https://www.example.com/example_image.jpg",
-      "url": "https://pixelators.org",
-      // "sameAs": ["https://example.net/profile/example1234", "https://example.org/example1234"],
-      // "logo": "https://www.example.com/images/logo.png",
-      "name": "The Pixelators",
-      "description": "Stanford OHS's FRC Robotics Team",
-      "email": "webmaster@pixelators.org",
-      "taxID": "84-2622283",
-      // "telephone": "+47-99-999-9999",
-      // "address": {
-      //   "@type": "PostalAddress",
-      //   "streetAddress": "Rue Improbable 99",
-      //   "addressLocality": "Paris",
-      //   "addressCountry": "FR",
-      //   "addressRegion": "Ile-de-France",
-      //   "postalCode": "75001"
-      // },
-      // "iso6523Code": "0199:724500PMK2A2M1SQQ228"
-    }
-    </script>
-{{ end }}
 {{ define "body" }}
 {{ $hero_img := resources.Get "images/homepage/landing.jpg" }}
 {{ $hero_img := $hero_img.Process "webp" }}
@@ -155,27 +129,26 @@
         <img alt="Pixelators at work" class="{{ $img_classes }}"
              src="{{ $image8.RelPermalink }}"/>
     </div>
-</div>
 
-<script>
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    let completed = sessionStorage.getItem("index_typewriter") === "true";
-    if (!prefersReducedMotion && !completed) {
-        const typewriter = document.getElementById("titleHeading");
-        const fullText = typewriter.textContent;
-        typewriter.textContent = " ";
-        setTimeout(() => {
-            let i = 0;
-            const interval = setInterval(() => {
-                if (i < fullText.length) {
-                    typewriter.textContent += fullText.charAt(i);
-                    i++;
-                } else {
-                    sessionStorage.setItem("index_typewriter", "true");
-                    clearInterval(interval);
-                }
-            }, 150);
-        }, 1750)
-    }
-</script>
+    <script>
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        let completed = sessionStorage.getItem("index_typewriter") === "true";
+        if (!prefersReducedMotion && !completed) {
+            const typewriter = document.getElementById("titleHeading");
+            const fullText = typewriter.textContent;
+            typewriter.textContent = " ";
+            setTimeout(() => {
+                let i = 0;
+                const interval = setInterval(() => {
+                    if (i < fullText.length) {
+                        typewriter.textContent += fullText.charAt(i);
+                        i++;
+                    } else {
+                        sessionStorage.setItem("index_typewriter", "true");
+                        clearInterval(interval);
+                    }
+                }, 150);
+            }, 1750)
+        }
+    </script>
 {{ end }}
