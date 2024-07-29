@@ -13,9 +13,11 @@ Theme based on PaperMod.
 ## Local Development
 
 1. Install Hugo: https://gohugo.io/getting-started/installing/
-2. Clone this repository
-3. Run `hugo server -D` in the root directory
-4. Open `http://localhost:1313/` in your browser
+2. Install Node.js: https://nodejs.org/en/download/
+3. Clone this repository
+4. Run `npm install` in the root directory (only needed to be done once)
+5. Run `hugo server -D` in the root directory
+6. Open `http://localhost:1313/` in your browser
 
 
 ### Creating a new post
