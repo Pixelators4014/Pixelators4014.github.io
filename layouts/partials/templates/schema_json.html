@@ -58,7 +58,7 @@
   ]
 }
 </script>
-{{- if .IsPage }}
+{{- if and .IsPage .Params.blog }}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
