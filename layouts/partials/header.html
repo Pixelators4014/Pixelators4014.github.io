@@ -41,7 +41,7 @@
 
 <header class="header">
     <nav>
-        <div id="nav-div" class="w-full fixed z-20 top-0 start-0 border-gray-400 dark:border-gray-700 backdrop-blur-3xl backdrop-brightness-200 dark:backdrop-brightness-75 bg-white dark:bg-slate-900">
+        <div id="nav-div" class="w-full fixed z-20 top-0 start-0 border-gray-400 dark:border-gray-700 backdrop-blur-3xl backdrop-brightness-200 dark:backdrop-brightness-75 bg-white dark:bg-slate-900 transition-colors duration-500 ease-in-out">
             <div class="max-w-screen-xl items-center justify-between flex flex-wrap mx-auto p-4">
             {{- $label_text := (site.Params.label.text | default site.Title) }}
             {{- if site.Title }}
@@ -57,26 +57,50 @@
             {{- template "partials/social_icons.html" . }}
             <div class="logo-switches pl-2 mr-auto" style="padding-top: 6px;">
                 {{- if (not site.Params.disableThemeToggle) }}
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
+                <div>
+                    <label class="day-night-toggle">
+                      <input type="checkbox" class="hidden" id="theme-toggle" hidden>
+                      <span class="toggle">
+                        <span class="clouds-back">
+                          <span class="cloud"></span>
+                          <span class="cloud"></span>
+                          <span class="cloud"></span>
+                          <span class="cloud"></span>
+                          <span class="cloud"></span>
+                          <span class="cloud"></span>
+                          <span class="cloud"></span>
+                          <span class="cloud"></span>
+                        </span>
+                        <span class="stars">
+                          <span class="star"></span>
+                          <span class="star"></span>
+                          <span class="star"></span>
+                          <span class="star"></span>
+                          <span class="star"></span>
+                          <span class="star"></span>
+                          <span class="star"></span>
+                          <span class="star"></span>
+                          <span class="star"></span>
+                          <span class="star"></span>
+                          <span class="star"></span>
+                          <span class="star"></span>
+                        </span>
+                        <span class="sun">
+                          <span class="moon"></span>
+                        </span>
+                        <span class="clouds-front">
+                          <span class="cloud"></span>
+                          <span class="cloud"></span>
+                          <span class="cloud"></span>
+                          <span class="cloud"></span>
+                          <span class="cloud"></span>
+                          <span class="cloud"></span>
+                          <span class="cloud"></span>
+                          <span class="cloud"></span>
+                        </span>
+                      </span>
+                    </label>
+                </div>
                 {{- end }}
 
                 {{- $lang := .Lang}}

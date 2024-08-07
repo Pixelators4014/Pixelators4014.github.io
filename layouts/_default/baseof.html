@@ -4,14 +4,13 @@
 
 <!DOCTYPE html>
 <html lang="{{ site.Language }}" dir="{{ .Language.LanguageDirection | default "auto" }}">
-
 <head>
     {{- partial "head.html" . }}
     {{ block "head" . }}
     {{ end }}
 </head>
 
-<body class="antialiased bg-white dark:bg-slate-900 text-lg leading-normal scroll-smooth
+<body class="antialiased bg-white dark:bg-slate-900 text-lg leading-normal scroll-smooth transition-colors duration-500 ease-in-out
 {{- if eq site.Params.defaultTheme `dark` -}}
 {{- print " dark" }}
 {{- end -}}
@@ -28,10 +27,9 @@
 
     {{- partialCached "header.html" . .Page -}}
     {{- block "body" . }}{{ end }}
-    <main id="main" class="main" style="margin-top: 60px">
+    <main id="main transition-colors duration-500 ease-in-out" class="main" style="margin-top: 60px">
         {{- block "main" . }}{{ end }}
     </main>
     {{ partialCached "footer.html" . .Layout .Kind (.Param "hideFooter") (.Param "ShowCodeCopyButtons") -}}
 </body>
-
 </html>
