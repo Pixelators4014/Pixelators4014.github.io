@@ -1,0 +1,10 @@
+@layer components {
+  // dark mode button
+  body.dark #moon {
+    @apply hidden align-middle
+  }
+
+  body:not(.dark) #sun {
+    @apply hidden
+  }
+}
