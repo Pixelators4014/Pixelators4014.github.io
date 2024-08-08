@@ -20,7 +20,7 @@
     </div>
     {{- end }}
     {{- if not (.Param "hideMeta") }}
-    <div class="post-meta text-slate-500 text-sm flex flex-wrap">
+    <div class="post-meta text-text-secondary-light dark:text-text-secondary-dark text-sm flex flex-wrap">
       {{- partial "post/post_meta.html" . -}}
       {{- partial "translation_list.html" . -}}
       {{- partial "post/edit_post.html" . -}}

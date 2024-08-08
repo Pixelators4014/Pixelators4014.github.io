@@ -80,7 +80,7 @@ export function search() {
                     for (res of data.items) {
                         console.log(res);
                         let resItem = document.createElement('a');
-                        resItem.classList.add('block', 'w-full', 'px-4', 'py-2', 'border-b', 'cursor-pointer', 'text-black', 'dark:text-white', 'hover:text-black', 'hover:dark:text-white', 'hover:bg-slate-600');
+                        resItem.classList.add('block', 'w-full', 'px-4', 'py-2', 'border-b', 'cursor-pointer', 'text-text-primary-light', 'dark:text-text-primary-dark', 'hover:text-black', 'hover:dark:text-white', 'hover:bg-slate-600');
                         resItem.href = res.link;
                         resItem.ariaLabel = res.title;
                         let resTitle = document.createElement('div');

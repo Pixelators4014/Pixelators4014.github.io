@@ -154,8 +154,8 @@
 <script>
     window.addEventListener("scroll", function(evt) {
         let navDiv = document.getElementById('nav-div');
-        let topClasses = ["bg-white", "dark:bg-slate-900"];
-        let scrollClasses = ["bg-white/10", "dark:bg-slate-900/10", "border-b"]
+        let topClasses = ["bg-background-0-light", "dark:bg-background-0-dark"];
+        let scrollClasses = ["bg-background-0-light/10", "dark:bg-slate-background-0-dark/10", "border-b"]
         if (window.scrollY < 150) {
             for (let i = 0; i < topClasses.length; i++) {
                 if (!navDiv.classList.contains(topClasses[i])) {

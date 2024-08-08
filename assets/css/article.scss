@@ -119,7 +119,7 @@
 
     .post-content table th,
     .post-content table:not(.highlighttable, .highlight table, .gist .highlight) td {
-        @apply min-w-20 pt-2 pb-2 pl-1 pr-1 leading-normal border-b border-solid border-gray-300 dark:border-slate-600
+        @apply min-w-20 pt-2 pb-2 pl-1 pr-1 leading-normal border-b border-solid border-border-01-light dark:border-border-01-dark
     }
 
     .post-content table th {
