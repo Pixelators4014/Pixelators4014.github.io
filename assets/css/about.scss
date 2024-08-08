@@ -1,0 +1,25 @@
+@layer components {
+    .timeline {
+        @apply relative border-s border-text-tertiary-light dark:border-text-tertiary-dark
+    }
+
+    .timeline > li {
+        @apply mb-10 ms-4 list-none
+    }
+
+    .timeline > li > div {
+        @apply absolute w-3 h-3 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 bg-text-secondary-light dark:bg-text-secondary-dark
+    }
+
+    .timeline > li > time {
+        @apply mb-1 text-sm font-normal leading-none text-text-secondary-light dark:text-text-secondary-dark
+    }
+
+    .timeline > li > h3 {
+        @apply text-lg font-semibold text-text-primary-light dark:text-text-primary-dark
+    }
+
+    .timeline > li > p {
+        @apply text-base font-normal text-text-secondary-light dark:text-text-secondary-dark
+    }
+}
