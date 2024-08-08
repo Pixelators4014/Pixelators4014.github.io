@@ -29,11 +29,11 @@
 
   // Link stuff
   main a {
-    @apply text-red-500 no-underline
+    @apply text-accent-secondary-light dark:text-accent-secondary-dark no-underline
   }
 
   main a:hover {
-    @apply text-red-600
+    @apply text-accent-primary-light dark:text-accent-primary-dark
   }
 
   img {
