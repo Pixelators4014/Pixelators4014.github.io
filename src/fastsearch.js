@@ -87,7 +87,7 @@ export function search() {
                         resTitle.innerHTML = `<h3 class="text-lg font-semibold">${res.htmlTitle}</h3>`;
                         let resSummary = document.createElement('div');
                         resSummary.classList.add('text-sm', 'font-normal');
-                        resSummary.innerHTML = `<p class="hover:text-black dark:hover:text-white">${res.htmlSnippet}</p>`;
+                        resSummary.innerHTML = `<p class="hover:text-text-primary-light hover:dark:text-text-primary-dark">${res.htmlSnippet}</p>`;
                         resItem.appendChild(resTitle);
                         resItem.appendChild(resSummary);
                         resList.appendChild(resItem);

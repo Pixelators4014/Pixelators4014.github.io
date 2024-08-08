@@ -1,5 +1,5 @@
 {{- if (.Param "ShowBreadCrumbs") -}}
-<div class="breadcrumbs text-slate-500 text-sm flex flex-wrap">
+<div class="breadcrumbs text-text-secondary-light dark:text-text-secondary-dark text-sm flex flex-wrap">
     {{- $url := replace .Parent.Permalink (printf "%s" site.Home.Permalink) "" }}
     {{- $lang_url := strings.TrimPrefix (printf "%s/" .Lang) $url -}}
 

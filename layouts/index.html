@@ -16,7 +16,7 @@
                       clip-rule="evenodd"></path>
             </svg>
         </a>
-        <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-black dark:text-white md:text-5xl lg:text-6xl font-homepageTitle">
+        <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-text-primary-light dark:text-text-primary-dark md:text-5xl lg:text-6xl font-logo">
             <span id="titleHeading" class="typewriter">{{ site.Title }}</span>
         </h1>
         <p class="mb-8 text-lg font-normal text-slate-800 lg:text-xl sm:px-16 xl:px-48 dark:text-slate-400">Stanford OHS's FRC Robotics Team</p>
@@ -39,7 +39,7 @@
         <div class="px-4 mx-auto text-center md:max-w-screen-md lg:max-w-screen-lg lg:px-36">
             <span class="font-semibold text-black dark:text-gray-400 uppercase">Sponsored By</span>
             {{ $convert := images.Process "webp" }}
-            <div class="flex flex-wrap justify-center items-center mt-8 text-gray-500 sm:justify-between">
+            <div class="flex flex-wrap justify-center items-center mt-8 text-text-secondary-light dark:text-text-secondary-dark sm:justify-between">
                 <a href="https://nasa.gov" class="mr-5 mb-5 lg:mb-0 hover:text-gray-800 dark:hover:text-gray-400 hover:scale-105 duration-300">
                     {{ $nasa_logo := resources.Get "images/sponsor/nasa_text.png" | images.Filter $convert }}
                     {{ $nasa_logo := $nasa_logo.Resize "325x" }}
@@ -69,18 +69,18 @@
 
     <section>
         <div class="px-4 py-8 mx-auto text-center lg:py-16 lg:px-6">
-            <dl class="columns-3 gap-8 text-gray-900 dark:text-white">
+            <dl class="columns-3 gap-8">
                 <div class="flex flex-col items-center justify-center invisible intersect:visible intersect:animate-fade-right intersect:animate-duration-1000 intersect:animate-delay-[100ms] intersect:animate-ease-out">
-                    <dt class="mb-2 text-3xl md:text-4xl font-extrabold">10+</dt>
-                    <dd class="font-light text-gray-500 dark:text-gray-400">seasons</dd>
+                    <dt class="mb-2 text-3xl md:text-4xl font-extrabold text-text-primary-light dark:text-text-primary-dark">10+</dt>
+                    <dd class="font-light text-text-secondary-light dark:text-text-secondary-dark">seasons</dd>
                 </div>
                 <div class="flex flex-col items-center justify-center invisible intersect:visible intersect:animate-fade-up intersect:animate-duration-1000 intersect:animate-delay-[100ms] intersect:animate-ease-out">
-                    <dt class="mb-2 text-3xl md:text-4xl font-extrabold">3</dt>
-                    <dd class="font-light text-gray-500 dark:text-gray-400">countries</dd>
+                    <dt class="mb-2 text-3xl md:text-4xl font-extrabold text-text-primary-light dark:text-text-primary-dark">3</dt>
+                    <dd class="font-light text-text-secondary-light dark:text-text-secondary-dark">countries</dd>
                 </div>
                 <div class="flex flex-col items-center justify-center invisible intersect:visible intersect:animate-fade-left intersect:animate-duration-1000 intersect:animate-delay-[100ms] intersect:animate-ease-out">
-                    <dt class="mb-2 text-3xl md:text-4xl font-extrabold">11</dt>
-                    <dd class="font-light text-gray-500 dark:text-gray-400">members</dd>
+                    <dt class="mb-2 text-3xl md:text-4xl font-extrabold text-text-primary-light dark:text-text-primary-dark">11</dt>
+                    <dd class="font-light text-text-secondary-light dark:text-text-secondary-dark">members</dd>
                 </div>
             </dl>
         </div>
