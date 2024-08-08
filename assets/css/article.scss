@@ -279,55 +279,38 @@
     .share-buttons a:not(:last-of-type) {
         @apply me-3
     }
-}
 
-// UNPORTED CODE BELOW
+    h1:hover .anchor,
+    h2:hover .anchor,
+    h3:hover .anchor,
+    h4:hover .anchor,
+    h5:hover .anchor,
+    h6:hover .anchor {
+        @apply inline-flex text-text-secondary-light dark:text-text-secondary-dark font-medium ms-2 select-none
+    }
 
-h1:hover .anchor,
-h2:hover .anchor,
-h3:hover .anchor,
-h4:hover .anchor,
-h5:hover .anchor,
-h6:hover .anchor {
-    display: inline-flex;
-    color: var(--secondary);
-    margin-inline-start: 8px;
-    font-weight: 500;
-    user-select: none;
-}
+    .paginav {
+        @apply flex leading-8
+    }
 
-.paginav {
-    display: flex;
-    line-height: 30px;
-}
+    .paginav a {
+        @apply ps-3.5 pe-3.5 rounded-lg
+    }
 
-.paginav a {
-    padding-inline-start: 14px;
-    padding-inline-end: 14px;
-    border-radius: var(--radius);
-}
+    .paginav .title {
+        @apply uppercase text-sm text-text-secondary-light dark:text-text-secondary-dark
+    }
 
-.paginav .title {
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-size: small;
-    color: var(--secondary);
-}
+    .paginav .prev,
+    .paginav .next {
+        @apply w-1/2
+    }
 
-.paginav .prev,
-.paginav .next {
-    width: 50%;
-}
+    .paginav span:hover:not(.title) {
+        @apply shadow-md
+    }
 
-.paginav span:hover:not(.title) {
-    box-shadow: 0 1px 0;
-}
-
-.paginav .next {
-    margin-inline-start: auto;
-    text-align: right;
-}
-
-[dir="rtl"] .paginav .next {
-    text-align: left;
+    .paginav .next {
+        @apply ms-auto text-right rtl:text-left
+    }
 }

@@ -26,7 +26,7 @@ pre {
     right: 4px;
     color: rgba(255, 255, 255, 0.8);
     background: rgba(78, 78, 78, 0.8);
-    border-radius: var(--radius);
+    border-radius: 8px;
     padding: 0 5px;
     font-size: 14px;
     user-select: none;
