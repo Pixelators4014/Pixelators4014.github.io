@@ -4,53 +4,15 @@
 
 @import "article";
 @import "darkbutton";
+@import "defaults";
+@import "footer";
 
-@layer base {
-  @font-face {
-    font-family: 'Monocraft';
-    src: url(/fonts/Monocraft.ttf) format('truetype');
-  }
-
-  *,
-  ::after,
-  ::before {
-    @apply box-border
-  }
-
-  body {
-    @apply break-words
-  }
-
-  article,
-  aside,
-  figcaption,
-  figure,
-  header,
-  hgroup,
-  main,
-  nav,
-  section,
-  table {
-    @apply block
-  }
-
-  // Link stuff
-  main a {
-    @apply text-red-500 no-underline
-  }
-
-  main a:hover {
-    @apply text-red-600
-  }
-
-  img {
-    @apply block
-  }
-
-  button,
-  input[type=button],
-  input[type=submit] {
-    @apply cursor-pointer
-  }
+.top-link {
+  visibility: hidden;
+  transition: visibility 0.25s, opacity 0.4s linear;
 }
 
+.top-link:focus,
+#theme-toggle:focus {
+  outline: 0;
+}
