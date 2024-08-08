@@ -103,7 +103,9 @@ export function search() {
 // execute search on enter key
 sInput.onkeydown = function (e) {
     if (e.key === 'Enter') {
-        search();
+        if (sInput.value !== '') {
+            search();
+        }
     }
 }
 
