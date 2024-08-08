@@ -228,8 +228,10 @@ but we plan to move it to its own repository, so it can be used in a `Cargo.toml
 
 We used Docker to package our code, you can find our docker file
 here: https://github.com/Pixelators4014/pixelization_rs/blob/master/Dockerfile.
+
 To run all the nodes simultaneously, we used a launch file, which we published
 here: https://github.com/Pixelators4014/pixelization_rs/blob/master/launch/run.launch.py.
+
 The launch file is a python file that configures and launches all the nodes.
 
 ## Integration with the Main Robot Code
@@ -271,4 +273,5 @@ It, however, probably would be a great off-season project that could be used in 
 Happy Hacking and Good Luck!
 
 EDIT 1 (5/28/2024): Fixed FMV limit typo
+
 EDIT 2 (7/18/2024): Our ros2 logger has moved to [https://github.com/Pixelators4014/ros2_logger](https://github.com/Pixelators4014/ros2_logger)
