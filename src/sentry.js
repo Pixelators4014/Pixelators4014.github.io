@@ -1,5 +1,7 @@
 import * as Sentry from "@sentry/browser";
 
+// https://38ed2e5ebef8f81da02881729196eede@sentry-forwarding.arihant2math.workers.dev/4507371856986112
+
 Sentry.init({
     dsn: "https://38ed2e5ebef8f81da02881729196eede@o4507371853512704.ingest.us.sentry.io/4507371856986112",
     integrations: [
