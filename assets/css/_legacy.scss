@@ -5,10 +5,10 @@ $footer-height: 20px;
 
 .main {
     position: relative;
-    min-height: calc(100vh - $header-height - $footer-height);
-    max-width: calc($main-width + $gap * 2);
+    min-height: calc(100vh - #{$header-height} - #{$footer-height});
+    max-width: calc(#{$main-width} + #{$gap} * 2);
     margin: auto;
-    padding: $gap;
+    padding: #{$gap};
 }
 
 .page-header h1 {
