@@ -13,3 +13,11 @@
 {{- else }}
 <script defer crossorigin="anonymous" src="{{ $intersect_js.RelPermalink }}"></script>
 {{- end }}
+
+{{- $sentry_js :=  resources.Get "js/sentry.js" }}
+{{- if not site.Params.assets.disableFingerprinting }}
+{{ $sentry_js = $sentry_js | resources.Fingerprint "sha512" }}
+<script defer crossorigin="anonymous" src="{{ $sentry_js.RelPermalink }}" integrity="{{ $sentry_js.Data.Integrity }}"></script>
+{{- else }}
+<script defer crossorigin="anonymous" src="{{ $sentry_js.RelPermalink }}"></script>
+{{- end }}
