@@ -23,17 +23,10 @@
     animation: blink-caret .75s step-end infinite;
 }
 
-html[data-turbo-visit-direction="forward"]::view-transition-old(sidebar):only-child {
-    animation: slide-to-right 0.5s ease-out;
-}
-
 @media (prefers-reduced-motion) {
     .typewriter {
         border-right: none;
         animation: none;
     }
-
-    html[data-turbo-visit-direction="forward"]::view-transition-old(sidebar):only-child {
-        animation: none;
-    }
 }
+
