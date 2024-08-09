@@ -4,6 +4,11 @@
     src: url(/fonts/Monocraft.ttf) format('truetype');
   }
 
+  @font-face {
+    font-family: 'Inter', sans-serif;
+    src: local('Inter'), url("/fonts/Inter.ttf") format('truetype');
+  }
+
   *,
   ::after,
   ::before {
