@@ -47,7 +47,7 @@ jobs:
         id: pages
         uses: actions/configure-pages@v5
       - name: Install Node.js dependencies
-        run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
+        run: npm ci --include dev
       - name: Compile JS with Webpack
         run: npm run build
       - name: Build with Hugo
