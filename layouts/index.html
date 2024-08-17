@@ -46,14 +46,14 @@
                     <img src="{{ $nasa_logo.RelPermalink }}" alt="NASA logo" class="h-16"/>
                 </a>
                 <a href="https://www.northropgrumman.com/" class="mr-5 mb-5 lg:mb-0 hover:text-gray-800 dark:hover:text-gray-400 hover:scale-105 duration-300">
-                    {{ $ng := resources.Get "images/sponsor/northrop_grumman.png" | images.Filter $convert}}
-                    {{ $ng := $ng.Resize "325x" }}
-                    <img src="{{ $ng.RelPermalink }}" alt="Northrop Grumman logo" class="h-16"/>
+                    {{ $ng_logo := resources.Get "images/sponsor/northrop_grumman.png" | images.Filter $convert}}
+                    {{ $ng_logo := $ng_logo.Resize "325x" }}
+                    <img src="{{ $ng_logo.RelPermalink }}" alt="Northrop Grumman logo" class="h-16"/>
                 </a>
                 <a href="https://www.baesystems.com/en/home" class="mr-5 mb-5 lg:mb-0 hover:text-gray-800 dark:hover:text-gray-400 hover:scale-105 duration-300">
-                    {{ $bae := resources.Get "images/sponsor/bae.png" | images.Filter $convert}}
-                    {{ $bae := $bae.Resize "325x" }}
-                    <img src="{{ $bae.RelPermalink }}" alt="BAE Systems logo" class="h-12"/>
+                    {{ $bae_logo := resources.Get "images/sponsor/bae.png" | images.Filter $convert}}
+                    {{ $bae_logo := $bae_logo.Resize "325x" }}
+                    <img src="{{ $bae_logo.RelPermalink }}" alt="BAE Systems logo" class="h-12"/>
                 </a>
             </div>
         </div>
@@ -129,26 +129,11 @@
         <img alt="Pixelators at work" class="{{ $img_classes }}"
              src="{{ $image8.RelPermalink }}"/>
     </div>
-
-    <script>
-        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        let completed = sessionStorage.getItem("index_typewriter") === "true";
-        if (!prefersReducedMotion && !completed) {
-            const typewriter = document.getElementById("titleHeading");
-            const fullText = typewriter.textContent;
-            typewriter.textContent = " ";
-            setTimeout(() => {
-                let i = 0;
-                const interval = setInterval(() => {
-                    if (i < fullText.length) {
-                        typewriter.textContent += fullText.charAt(i);
-                        i++;
-                    } else {
-                        sessionStorage.setItem("index_typewriter", "true");
-                        clearInterval(interval);
-                    }
-                }, 150);
-            }, 1750)
-        }
-    </script>
+    {{- $home_js :=  resources.Get "js/home.js" }}
+    {{- if not site.Params.assets.disableFingerprinting }}
+        {{ $home_js = $home_js | resources.Fingerprint "sha512" }}
+        <script defer crossorigin="anonymous" src="{{ $home_js.RelPermalink }}" integrity="{{ $home_js.Data.Integrity }}"></script>
+    {{- else }}
+        <script defer crossorigin="anonymous" src="{{ $home_js.RelPermalink }}"></script>
+    {{- end }}
 {{ end }}
