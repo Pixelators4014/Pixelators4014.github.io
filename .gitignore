@@ -1,12 +1,14 @@
 .hugo_build.lock
-public/*
+**/.DS_Store
+
 .idea/*
 .vscode/*
 .vs/*
 
-
-**/.DS_Store
-
 **/node_modules
 
 resources/_gen
+
+public/*
+
+assets/js/*
