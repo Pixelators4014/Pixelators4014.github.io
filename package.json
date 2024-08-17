@@ -4,7 +4,11 @@
   "description": "Our website",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode production",
+    "build-dev": "webpack --mode development",
+    "serve": "webpack serve --mode development",
+    "serve-prod": "webpack serve --mode production"
   },
   "keywords": [],
   "author": "",
@@ -13,16 +17,16 @@
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
-    "@hotwired/turbo": "^8.0.4",
-    "@tailwindcss/forms": "^0.5.7",
-    "autoprefixer": "^10.4.19",
+    "@hotwired/turbo": "^8.0",
+    "tailwindcss": "^3.4",
+    "tailwindcss-animated": "^1.1",
+    "tailwindcss-intersect": "^2.0",
+    "@tailwindcss/forms": "^0.5",
+    "autoprefixer": "^10.4",
     "fuse.js": "^7.0.0",
-    "postcss": "^8.4.38",
-    "postcss-cli": "^11.0.0",
-    "postcss-import": "^16.1.0",
-    "tailwindcss": "^3.4.3",
-    "tailwindcss-animated": "^1.1.0",
-    "tailwindcss-intersect": "^1.0.5",
-    "@sentry/browser": "^8.7.0"
+    "postcss": "^8.4",
+    "postcss-cli": "^11.0",
+    "postcss-import": "^16.1",
+    "@sentry/browser": "^8.26"
   }
 }
