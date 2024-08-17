@@ -47,7 +47,7 @@ jobs:
         id: pages
         uses: actions/configure-pages@v5
       - name: Install Node.js dependencies
-        run: npm ci --include dev
+        run: npm install --dev
       - name: Compile JS with Webpack
         run: npm run build
       - name: Build with Hugo
