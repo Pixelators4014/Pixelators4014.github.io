@@ -27,7 +27,7 @@
 
 {{- partial "extend_footer.html" . }}
 
-{{- $main_js :=  resources.Get "js/main.js" }}
+{{- $main_js := resources.Get "js/main.js" }}
 {{- if not site.Params.assets.disableFingerprinting }}
 {{ $main_js = $main_js | resources.Fingerprint "sha512" }}
 <script defer crossorigin="anonymous" src="{{ $main_js.RelPermalink }}" integrity="{{ $main_js.Data.Integrity }}"></script>
@@ -36,12 +36,12 @@
 {{- end }}
 
 {{- if (not site.Params.disableThemeToggle) }}
-    {{- $theme_toggle_js :=  resources.Get "js/themeToggle.js" }}
+    {{- $theme_toggle_js := resources.Get "js/theme.js" }}
     {{- if not site.Params.assets.disableFingerprinting }}
-    {{ $theme_toggle_js = $theme_toggle_js | resources.Fingerprint "sha512" }}
-    <script defer crossorigin="anonymous" src="{{ $theme_toggle_js.RelPermalink }}" integrity="{{ $theme_toggle_js.Data.Integrity }}"></script>
+        {{ $theme_toggle_js = $theme_toggle_js | resources.Fingerprint "sha512" }}
+        <script defer crossorigin="anonymous" src="{{ $theme_toggle_js.RelPermalink }}" integrity="{{ $theme_toggle_js.Data.Integrity }}"></script>
     {{- else }}
-    <script defer crossorigin="anonymous" src="{{ $theme_toggle_js.RelPermalink }}"></script>
+        <script defer crossorigin="anonymous" src="{{ $theme_toggle_js.RelPermalink }}"></script>
     {{- end }}
 {{- end }}
 

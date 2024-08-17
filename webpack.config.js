@@ -8,7 +8,7 @@ module.exports = {
         'intersect': './src/entry/intersect.js',
         'sentry': './src/entry/sentry.js',
         'turbo': './src/entry/turbo.js',
-        'themeToggle': './src/entry/themeToggle.js',
+        'theme': './src/entry/themeToggle.js',
         'copyCode': './src/entry/copyCode.js',
         // Pages
         'home': './src/page/home.js',
