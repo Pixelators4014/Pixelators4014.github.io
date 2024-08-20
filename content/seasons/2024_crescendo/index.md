@@ -1,5 +1,5 @@
 +++
-title = 'Crescendo'
+title = '2024 - Crescendo'
 summary = 'Our 2024 season was an eventful one. We focused on our new swerve drive and new VSLAM and april tags position tracking technology.'
 +++
 
@@ -52,4 +52,4 @@ The code for that node can be found on [GitHub](https://github.com/Pixelators401
 - Veronica Howard (Fabrication)
 
 ![Neel Gadde, Justin Guoji, Alistair Keiller, Han Lu, Veronica Howard at Aerospace Valley Regional 2024](./Members_2024.avif)
-Picture from left to right: Neel Gadde, Justin Guoji, Alistair Keiller, Han Lu, Veronica Howard at Aerospace Valley Regional 2024. 
+Picture from left to right: Neel Gadde, Justin Guoji, Alistair Keiller, Han Lu, Veronica Howard at Aerospace Valley Regional 2024.
