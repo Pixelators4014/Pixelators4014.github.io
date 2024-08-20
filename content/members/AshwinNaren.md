@@ -1,7 +1,7 @@
 +++
 title = 'Ashwin Naren'
 photo = 'images/member_photos/ashwin.png'
-position = 'Software Lead'
+position = 'Captain'
 +++
 
 Ashwin Naren is a freshman at Stanford Online High School who enjoys math, programming, and swimming.

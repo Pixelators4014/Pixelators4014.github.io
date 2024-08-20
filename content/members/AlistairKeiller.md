@@ -1,7 +1,7 @@
 +++
 title = 'Alistair Keiller'
 photo = 'images/member_photos/alistair.png'
-position = 'Captain'
+position = 'Alumni'
 +++
 Alistair is interested in web development, competitive programming, robotics, and math.
 Additional hobbies he enjoys are welding and video games.
